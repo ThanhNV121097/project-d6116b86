@@ -8,6 +8,7 @@ import { formatDateTime, formatPrice } from "../lib/format";
 import { lastOrder, type PlacedOrder } from "../lib/mock/orders";
 import type { Product } from "../lib/shop";
 import { Picture } from "../picture";
+import Grid from "../components/Grid";
 import Icon from "../components/Icon";
 import Pill from "../components/Pill";
 import ProductImage from "../components/ProductImage";
@@ -74,7 +75,7 @@ export default function Order() {
             <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-ink underline-offset-4 hover:underline"><Icon name="chat" size={16} /><T k="pages.order.ask" /></Link>
           </div>
         </div>
-        <div className="relative min-h-[26rem] overflow-hidden rounded bg-[var(--photo-deep)] lg:col-span-6">
+        <div className="relative min-h-[26rem] overflow-hidden rounded bg-[var(--photo-deep)] lg:col-span-6 lg:-mr-[var(--gutter)] lg:rounded-r-none">
           {image && <Picture src={image} alt="" loading="eager" width={1280} height={853} className="absolute inset-0 h-full w-full object-cover" />}
           <div data-tilt="" className="absolute bottom-4 left-4 right-4 rounded bg-ground p-5 text-ink shadow-[var(--shadow-md)] sm:right-auto sm:w-80">
             <T k="pages.order.total" as="p" className="text-xs uppercase tracking-widest text-ink-soft" />
@@ -87,18 +88,20 @@ export default function Order() {
 
       <section className="mt-16">
         <h2 className="relative mb-6 font-display text-[length:var(--size-h2)] uppercase leading-[0.95] text-ink"><T k="pages.order.what" /><Script k="pages.order.what_script" /></h2>
-        <ul className="divide-y divide-line border-y border-line">
+        <Grid count={order.lines.length} max={4}>
           {order.lines.map((l) => (
-            <li key={`${l.id}-${l.variant ?? ""}`} className="flex items-center gap-5 py-4">
-              <div className="w-20 shrink-0"><ProductImage src={l.image} alt={l.name} aspect="1/1" /></div>
-              <div className="min-w-0 flex-1">
-                <p className="font-display text-xl uppercase leading-tight text-ink">{l.name}</p>
-                <p className="text-sm tabular-nums text-ink-soft">{l.qty} × {formatPrice(l.price)}</p>
+            <article key={`${l.id}-${l.variant ?? ""}`} data-record={`products:${l.id}`} className="flex h-full flex-col overflow-hidden rounded border border-line bg-ground">
+              <ProductImage src={l.image} alt={l.name} aspect="4/3" className="rounded-none" />
+              <div className="flex flex-1 flex-col gap-2 p-4">
+                <p className="line-clamp-2 min-h-[2.5em] font-display text-xl uppercase leading-tight text-ink">{l.name}</p>
+                <p className="mt-auto flex items-baseline justify-between gap-3">
+                  <span className="text-[0.9375rem] tabular-nums text-ink-soft">{l.qty} × {formatPrice(l.price)}</span>
+                  <span className="font-display text-xl tabular-nums text-ink">{formatPrice(l.price * l.qty)}</span>
+                </p>
               </div>
-              <p className="font-display text-xl tabular-nums text-ink">{formatPrice(l.price * l.qty)}</p>
-            </li>
+            </article>
           ))}
-        </ul>
+        </Grid>
         <dl className="ml-auto mt-6 flex max-w-sm flex-col gap-2 text-sm">
           <div className="flex justify-between gap-4"><dt className="text-ink-soft"><T k="pages.checkout.subtotal" /></dt><dd className="tabular-nums text-ink">{formatPrice(order.subtotal)}</dd></div>
           <div className="flex justify-between gap-4"><dt className="text-ink-soft">{order.delivery}</dt><dd className="tabular-nums text-ink">{order.fee === null ? tbc : formatPrice(order.fee)}</dd></div>
