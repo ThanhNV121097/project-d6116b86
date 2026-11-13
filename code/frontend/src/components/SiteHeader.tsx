@@ -5,6 +5,7 @@ import { useCart } from "../lib/cart";
 import type { NavItem } from "../lib/shop";
 import CartDrawer from "./CartDrawer";
 import Icon from "./Icon";
+import LogoMark from "./LogoMark";
 import MenuToggle from "./MenuToggle";
 import MobileMenu from "./MobileMenu";
 
@@ -30,7 +31,7 @@ export default function SiteHeader({ over = false }: { over?: boolean }) {
       <div className="relative">
         <span className={`absolute inset-0 rounded ${over ? "border border-[var(--glass-line)] bg-[var(--glass)] backdrop-blur-md" : "border border-line"}`} />
         <div className="relative flex h-[var(--header-h)] items-center gap-8 px-5">
-          <Link to="/" aria-label={name} className="shrink-0 font-display text-2xl uppercase leading-none"><T k="site.name" /></Link>
+          <Link to="/" aria-label={name} className="flex shrink-0 items-center gap-2 font-display text-2xl uppercase leading-none"><LogoMark className="h-7 w-7" /><T k="site.name" /></Link>
           <nav aria-label="Main" className="mx-auto hidden items-center gap-10 text-sm lg:flex">
             {links.map((l, i) => (
               <Link key={l.href} to={l.href} className="underline-offset-4 hover:underline"><T k={`nav.links.${i}.label`} /></Link>
@@ -41,7 +42,7 @@ export default function SiteHeader({ over = false }: { over?: boolean }) {
               <span className="grid h-8 w-8 place-items-center rounded-full bg-ground text-ink"><Icon name="bag" size={16} /></span>
               <span className="hidden lg:inline"><T k="header.bag" />{" "}<span className="tabular-nums">({count})</span></span>
             </button>
-            <Link to="/shop" data-testid="header-cta"
+            <Link to="/shop" data-testid="header-cta" data-magnetic=""
               className="hidden rounded-full bg-ground px-5 py-2.5 font-display text-sm uppercase leading-none text-ink lg:block">
               <T k="nav.cta.label" />
             </Link>
