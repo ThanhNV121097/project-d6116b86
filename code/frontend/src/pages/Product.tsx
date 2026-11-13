@@ -61,7 +61,7 @@ export default function Product() {
       </nav>
 
       <section className="flex flex-col gap-10 lg:flex-row lg:gap-14">
-        <div className="lg:-ml-[var(--gutter)] lg:w-7/12 lg:shrink-0 lg:rounded-r lg:bg-[var(--product-ground)] lg:py-10 lg:pl-[var(--gutter)] lg:pr-10">
+        <div className="-mx-[var(--gutter)] bg-[var(--product-ground)] px-[var(--gutter)] py-6 lg:mr-0 lg:w-7/12 lg:shrink-0 lg:rounded-r lg:py-10 lg:pr-10">
           <ProductGallery images={picturesOf(item)} alt={item.name} aspect="1/1" />
         </div>
         <div data-record={`products:${item.id}`} className="flex flex-col gap-6 lg:flex-1 lg:pt-2">
