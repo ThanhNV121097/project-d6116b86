@@ -60,11 +60,11 @@ export default function Product() {
         {kind && (<><Icon name="next" size={14} /><Link to={`/shop?category=${kind.id}`} className="hover:text-ink">{kind.name}</Link></>)}
       </nav>
 
-      <section className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-        <div className="lg:col-span-7">
+      <section className="flex flex-col gap-10 lg:flex-row lg:gap-14">
+        <div className="lg:w-7/12">
           <ProductGallery images={picturesOf(item)} alt={item.name} aspect="1/1" />
         </div>
-        <div data-record={`products:${item.id}`} className="flex flex-col gap-6 lg:col-span-5 lg:pt-2">
+        <div data-record={`products:${item.id}`} className="flex flex-col gap-6 lg:w-5/12 lg:pt-2">
           <div className="flex flex-wrap gap-2">
             {kind && <Link to={`/shop?category=${kind.id}`} className={`${chip} bg-accent text-accent-ink`}><Icon name="fresh" size={13} />{kind.name}</Link>}
             {item.volume && <span className={`${chip} border border-line text-ink`}><Icon name="package" size={13} />{item.volume}</span>}
@@ -95,11 +95,11 @@ export default function Product() {
 
       {ingredients.length > 0 && (
         <section className="mx-[calc(var(--gutter)*-1)] mt-16 bg-surface px-[var(--gutter)] py-14 lg:py-20">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <h2 className="relative font-display text-[length:var(--size-h2)] uppercase leading-[0.95] text-ink lg:col-span-5">
+          <div className="flex flex-col gap-10 lg:flex-row">
+            <h2 className="relative font-display text-[length:var(--size-h2)] uppercase leading-[0.95] text-ink lg:w-5/12">
               <T k="pages.product.inside" /><Script k="pages.product.inside_script" />
             </h2>
-            <div className="lg:col-span-7">
+            <div className="lg:w-7/12">
               <ul className="flex flex-wrap gap-3">
                 {ingredients.map((x) => (
                   <li key={x} className="inline-flex items-center gap-2 rounded-full bg-ground px-5 py-3 font-display text-xl uppercase leading-none text-ink shadow-[var(--shadow-sm)]">
