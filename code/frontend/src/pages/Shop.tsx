@@ -52,8 +52,8 @@ export default function Shop() {
           <h1 className={`relative font-display text-[length:var(--size-h1)] uppercase leading-[0.95] ${onPhotoText}`}>
             {one ? one.name : <T k="pages.shop.heading" />}<Script onPhoto k="pages.shop.script" />
           </h1>
-          <p data-testid="shop-count" className={`shrink-0 text-base ${onPhotoText}`}>
-            <span data-count="" className="font-display text-4xl tabular-nums">{total}</span>{" "}<T k="pages.shop.count" />
+          <p data-testid="shop-count" className="inline-flex shrink-0 items-baseline gap-2 self-start rounded-full bg-[var(--glass)] px-5 py-2 font-display text-2xl uppercase leading-none backdrop-blur-md sm:self-auto">
+            <span data-count="" className="tabular-nums">{total}</span><T k="pages.shop.count" />
           </p>
         </div>
         <div role="group" aria-label={groupLabel} className="relative flex flex-wrap items-center gap-2">
