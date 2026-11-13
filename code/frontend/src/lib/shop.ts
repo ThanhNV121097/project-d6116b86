@@ -17,6 +17,8 @@ export interface Product {
   ingredients?: string[];
   /** How long it keeps, as a phrase: "5 days in the fridge". */
   keeps?: string;
+  /** Bottles on hand, when the owner keeps a count; read by AdminLowStock. */
+  stock?: number;
   status?: string;
   description?: string;
   /** Sizes or sweetness a buyer chooses between. */
