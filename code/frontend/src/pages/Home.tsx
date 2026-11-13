@@ -86,7 +86,7 @@ function Hero({ lead }: { lead: Product[] }) {
             off by the picture's foot, pale enough that the photograph reads
             through it. Read aloud, it is the whole headline. */}
         <h1 aria-label={headline} data-drift=""
-          className="absolute inset-x-0 -bottom-[0.16em] text-center font-display text-[clamp(6rem,23vw,25rem)] uppercase leading-[0.85] opacity-90 [text-shadow:0_0_2px_var(--scrim),0_2px_30px_var(--scrim)]">
+          className="absolute inset-x-0 -bottom-[0.16em] text-center font-display text-[clamp(6rem,23vw,25rem)] uppercase leading-[0.85] opacity-80 [text-shadow:0_0_2px_var(--scrim),0_2px_30px_var(--scrim)]">
           <SplitHeading k="hero.word" as="span" className="block whitespace-nowrap" />
         </h1>
         <p className="absolute inset-x-0 bottom-[36%] text-center text-[clamp(2.5rem,5vw,5rem)]"><Script alone onPhoto k="hero.script" className="translate-x-0" /></p>
