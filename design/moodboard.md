@@ -83,7 +83,7 @@ bottles before the site goes online.
 |---|---|---|
 | GHOSTED WORD | `SQUEEZED` across the hero photograph; `PRESSED` closing the footer | `pages/Home.tsx` Hero, `SiteFooter.tsx` |
 | FLOATING PRODUCT CARD | the first two bottles over the hero's lower corners; the order's total on the confirmation photograph; the contact details on the contact photograph | `ProductCard floating`, `pages/Order.tsx`, `pages/Contact.tsx` |
-| SCRIPT OVERLAY | three or four handwritten words across the end of every section heading on every page | `Script.tsx` |
+| SCRIPT OVERLAY | three or four handwritten words across the end of every section heading on every page — bright lime on photographs, olive-lime (`--script-ink`) on white so it reads | `Script.tsx` |
 | ACCENT PILL | every call to action — Shop, Add to bag, Check out, Pay — with its round glyph; the round version adds a bottle from a card | `Pill.tsx`, `ProductCard.tsx` |
 | CHIP LABEL | each bottle's lead fruit on its card; the kind and bottle-size filters on the shop; the ingredients on a bottle's page | `ProductCard.tsx`, `pages/Shop.tsx`, `pages/Product.tsx` |
 | TESTIMONIAL CARD | no reviews exist, so the three cards on the pale band carry the shop's own handling notes (shake it, keep it cold, drink it soon) — a photograph, a lime quote mark, two lines, and no invented customer | `pages/Home.tsx` Notes |
@@ -205,7 +205,7 @@ us" row → footer with `PRESSED` set enormous.
 1. A thin lime strip runs across the very top of every page carrying one line in small capitals.
 2. The home page opens on one bright photograph of juice being enjoyed, with SQUEEZED set in white capitals across its whole width, half-transparent, and a handwritten lime line over it.
 3. Two small white rounded cards float over the hero photograph's lower corners, each with a bottle on pale sky, its name, its price and a round lime button.
-4. Every section heading on every page is Anton capitals in deep green with three or four handwritten lime words tilted across its end.
+4. Every section heading on every page is Anton capitals with three or four handwritten words tilted across its end — bright lime on a photograph (with a deep-green shadow), an olive-lime `--script-ink` on white and on the pale band so it reads at 3:1.
 5. Every bottle on the site stands on the same flat pale-sky tile, with its lead fruit on a small lime chip at the tile's top right.
 6. On the home page at 1024px and wider, the flavours section holds the screen while its row of nine bottles passes sideways.
 7. A lime band of ingredient names runs by itself across the home page, between the flavours and the notes.
