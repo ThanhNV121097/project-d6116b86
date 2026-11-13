@@ -42,7 +42,7 @@ export default function SiteFooter() {
           </nav>
           <T k="footer.line" as="p" className="max-w-[34ch] leading-relaxed text-ink-soft lg:ml-auto lg:w-4/12" />
         </div>
-        <PhotoCredits className="border-t border-line py-5 text-xs text-ink-soft" />
+        <PhotoCredits className="border-t border-line py-5" />
       </div>
       <div aria-hidden="true" className="relative">
         <T k="footer.word" as="p" data-drift="" className="-mb-[0.17em] whitespace-nowrap text-center font-display text-[clamp(5rem,21vw,24rem)] uppercase leading-[0.85] text-ink" />
