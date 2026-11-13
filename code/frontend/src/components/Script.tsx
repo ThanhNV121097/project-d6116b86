@@ -22,7 +22,7 @@ export default function Script({ k, className = "", alone = false, onPhoto = fal
   // On white the script is the olive-lime that reads at 3:1; on a photograph
   // it is the bright lime on its own deep-green shadow.
   const ink = onPhoto
-    ? "text-accent [text-shadow:0_0_3px_var(--script-shadow),0_0_10px_var(--script-shadow),0_0_26px_var(--script-shadow),0_2px_3px_var(--script-shadow)]"
+    ? "text-accent [text-shadow:0_0_1px_var(--script-shadow),0_0_1px_var(--script-shadow),0_0_3px_var(--script-shadow),0_0_10px_var(--script-shadow),0_0_26px_var(--script-shadow),0_2px_3px_var(--script-shadow)]"
     : "text-[var(--script-ink)]";
   return (
     <>
