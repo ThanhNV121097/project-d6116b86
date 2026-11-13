@@ -35,7 +35,7 @@ export default function ProductCard({ product, floating = false }: {
       </Link>
       <div className={`flex flex-1 items-center justify-between gap-3 ${floating ? "px-2.5 py-2.5" : "p-4"}`}>
         <Link to={`/shop/${product.id}`} className="min-w-0">
-          <span className={`block truncate font-display uppercase leading-tight text-ink ${floating ? "text-lg" : "text-xl"}`}>{product.name}</span>
+          <span className={`block font-display uppercase leading-tight text-ink ${floating ? "truncate text-lg" : "line-clamp-2 text-xl"}`}>{product.name}</span>
           {!floating && inside && <span className="mt-1 block truncate text-xs text-ink-soft">{inside}</span>}
           <span className="mt-1 block text-sm tabular-nums text-ink">{formatPrice(product.price)}</span>
         </Link>
