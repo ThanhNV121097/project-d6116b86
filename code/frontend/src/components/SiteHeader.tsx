@@ -38,9 +38,11 @@ export default function SiteHeader({ over = false }: { over?: boolean }) {
             ))}
           </nav>
           <div className="ml-auto flex shrink-0 items-center gap-4 text-sm lg:ml-0">
-            <button type="button" onClick={() => setBag(true)} data-testid="open-bag" aria-label={bagLabel} className="inline-flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-ground text-ink"><Icon name="bag" size={16} /></span>
-              <span className="hidden lg:inline"><T k="header.bag" />{" "}<span className="tabular-nums">({count})</span></span>
+            <button type="button" onClick={() => setBag(true)} data-testid="open-bag" aria-label={`${bagLabel} (${count})`} className="relative grid h-10 w-10 place-items-center">
+              <span className={`grid h-9 w-9 place-items-center rounded-full text-ink ${over ? "bg-ground" : "bg-surface"}`}><Icon name="bag" size={17} /></span>
+              {count > 0 && (
+                <span data-testid="bag-count" className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[0.6875rem] font-medium leading-none tabular-nums text-accent-ink">{count}</span>
+              )}
             </button>
             <Link to="/shop" data-testid="header-cta" data-magnetic=""
               className={`hidden rounded-full px-5 py-2.5 font-display text-sm uppercase leading-none lg:block ${over ? "bg-ground text-ink" : "bg-accent text-accent-ink"}`}>
