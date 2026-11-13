@@ -148,7 +148,7 @@ function Ask() {
     <section className="relative mx-[calc(var(--gutter)*-1)] flex min-h-[26rem] flex-col justify-between gap-10 overflow-hidden bg-[var(--photo-deep)] p-[var(--gutter)] text-[var(--on-photo)] lg:h-[34rem] lg:py-14">
       {image && <Picture src={image} alt="" width={1600} height={900} motion="zoom" className="absolute inset-0 h-full w-full object-cover" />}
       <span className="absolute inset-0 bg-[linear-gradient(120deg,var(--scrim),transparent_60%)]" />
-      <h2 className="relative max-w-[13ch] font-display text-[length:var(--size-h1)] uppercase leading-[0.95]"><T k="home.ask.title" /><Script k="home.ask.script" /></h2>
+      <h2 className="relative max-w-[24ch] font-display text-[length:var(--size-h1)] uppercase leading-[0.95]"><T k="home.ask.title" /><Script k="home.ask.script" /></h2>
       <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <T k="home.ask.line" as="p" className="max-w-[40ch] text-sm leading-relaxed" />
         <Pill to="/shop" testid="ask-cta"><T k="home.ask.cta" /></Pill>
