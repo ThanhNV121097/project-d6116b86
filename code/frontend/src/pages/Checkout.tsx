@@ -1,51 +1,39 @@
-import { Link } from "react-router-dom";
 import { T } from "../editable";
 import { usePageMeta } from "../seo";
-import { useCart } from "../lib/cart";
-import { formatPrice } from "../lib/format";
+import { useCollection } from "../data";
+import { useCart, type CartLine } from "../lib/cart";
+import { useDemo } from "../lib/demo";
+import type { Product } from "../lib/shop";
 import OrderForm from "../components/OrderForm";
+import Pill from "../components/Pill";
+import Script from "../components/Script";
 
 /**
- * CHECKING OUT: who it is for and where it goes at the left, and what is
- * being ordered at the right, where it can be read while the form is filled
- * in. The shop confirms by message; nothing is charged on this page.
+ * PAYING: three numbered steps at the left — who it is for, how it gets to
+ * them, how they pay — and the order at the right with its pictures, what the
+ * total is made of, and the Pay pill naming the amount. What happens after
+ * Pay is said under the pill, before it is pressed.
  */
 export default function Checkout() {
   usePageMeta("pages.checkout.title", "pages.checkout.description");
-  const { lines, total } = useCart();
+  const cart = useCart();
+  const demo = useDemo();
+  const products = useCollection<Product>("products", { where: { status: "live" }, pageSize: 2 }).items;
+  const lines: CartLine[] = demo && cart.lines.length === 0
+    ? products.map((p, i) => ({ id: p.id, name: p.name, price: p.price, image: p.image, qty: i === 0 ? 2 : 1 }))
+    : cart.lines;
   return (
-    <div className="py-8">
-      <T k="pages.checkout.heading" as="h1" className="block text-[length:var(--size-h1)] leading-tight text-ink" />
-      <T k="pages.checkout.lead" as="p" className="mt-3 max-w-[60ch] text-sm leading-relaxed text-ink-soft" />
-      <div className="mt-8 flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-14">
-        <OrderForm className="min-w-0 flex-1" />
-        <aside className="rounded bg-surface p-6 lg:w-96 lg:shrink-0">
-          <T k="pages.checkout.summary" as="h2" className="mb-4 block text-lg text-ink" />
-          {lines.length === 0 ? (
-            <p className="text-sm text-ink-soft">
-              <T k="pages.checkout.empty" />{" "}
-              <Link to="/shop" className="font-medium text-accent hover:underline"><T k="pages.bag.browse" /></Link>
-            </p>
-          ) : (
-            <>
-              <ul className="flex flex-col gap-3 text-sm">
-                {lines.map((l) => (
-                  <li key={`${l.id}-${l.variant ?? ""}`} className="flex items-baseline justify-between gap-4">
-                    <span className="min-w-0 text-ink">
-                      <span className="tabular-nums text-ink-soft">{l.qty} ×</span>{" "}{l.name}
-                    </span>
-                    <span className="shrink-0 tabular-nums text-ink">{formatPrice(l.price * l.qty)}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 flex items-baseline justify-between border-t border-line pt-4">
-                <T k="pages.checkout.total" className="text-sm text-ink-soft" />
-                <span className="text-xl font-bold tabular-nums text-ink">{formatPrice(total)}</span>
-              </p>
-            </>
-          )}
-        </aside>
-      </div>
+    <div className="pb-8 pt-8">
+      <h1 className="relative font-display text-[length:var(--size-h1)] uppercase leading-[0.95] text-ink"><T k="pages.checkout.heading" /><Script k="pages.checkout.script" /></h1>
+      <T k="pages.checkout.lead" as="p" className="mt-4 max-w-[60ch] text-[0.9375rem] leading-relaxed text-ink-soft" />
+      {lines.length === 0 ? (
+        <div className="mt-10 flex flex-col items-start gap-6 rounded bg-surface p-8">
+          <T k="pages.checkout.empty" as="p" className="text-lg text-ink" />
+          <Pill to="/shop"><T k="pages.bag.browse" /></Pill>
+        </div>
+      ) : (
+        <OrderForm lines={lines} className="mt-10" />
+      )}
     </div>
   );
 }
