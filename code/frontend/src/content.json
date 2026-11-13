@@ -138,7 +138,9 @@
       "overview": {
         "drafts": "still in draft",
         "kinds": "Kinds",
+        "kinds_note": "What the juices are sorted by",
         "live": "On the menu",
+        "live_note": "In the shop now",
         "payments": "Ways to pay",
         "payments_note": "Offered at checkout",
         "products": "Juices",
@@ -210,7 +212,7 @@
     },
     "home": {
       "description": "Cold-pressed fruit, greens and roots in bottles. Choose yours and pay online.",
-      "title": "Ép — cold-pressed juice, ordered online"
+      "title": "Cold-pressed juice, ordered online"
     },
     "order": {
       "again": "Back to the juices",
