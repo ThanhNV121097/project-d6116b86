@@ -39,7 +39,7 @@ export default function Contact() {
           <T k="pages.contact.lead" as="p" className="mt-4 max-w-[52ch] text-[0.9375rem] leading-relaxed text-ink-soft" />
           <ContactForm className="mt-8" />
         </div>
-        <div className="relative min-h-[26rem] overflow-hidden rounded bg-[var(--photo-deep)] lg:col-span-6 lg:min-h-[36rem]">
+        <div className="relative min-h-[26rem] overflow-hidden rounded bg-[var(--photo-deep)] lg:col-span-6 lg:-mr-[var(--gutter)] lg:min-h-[36rem] lg:rounded-r-none">
           {image && <Picture src={image} alt="" loading="eager" width={1280} height={853} motion="parallax" className="absolute inset-0 h-full w-full object-cover" />}
           {rows.length > 0 && (
             <div className="absolute bottom-4 left-4 right-4 rounded bg-ground p-5 text-ink shadow-[var(--shadow-md)] sm:right-auto sm:w-80">
