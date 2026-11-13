@@ -61,10 +61,10 @@ export default function Product() {
       </nav>
 
       <section className="flex flex-col gap-10 lg:flex-row lg:gap-14">
-        <div className="lg:w-7/12">
+        <div className="lg:-ml-[var(--gutter)] lg:w-7/12 lg:shrink-0 lg:rounded-r lg:bg-[var(--product-ground)] lg:py-10 lg:pl-[var(--gutter)] lg:pr-10">
           <ProductGallery images={picturesOf(item)} alt={item.name} aspect="1/1" />
         </div>
-        <div data-record={`products:${item.id}`} className="flex flex-col gap-6 lg:w-5/12 lg:pt-2">
+        <div data-record={`products:${item.id}`} className="flex flex-col gap-6 lg:flex-1 lg:pt-2">
           <div className="flex flex-wrap gap-2">
             {kind && <Link to={`/shop?category=${kind.id}`} className={`${chip} bg-accent text-accent-ink`}><Icon name="fresh" size={13} />{kind.name}</Link>}
             {item.volume && <span className={`${chip} border border-line text-ink`}><Icon name="package" size={13} />{item.volume}</span>}
