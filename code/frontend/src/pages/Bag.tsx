@@ -15,11 +15,13 @@ import QuantityStepper from "../components/QuantityStepper";
 import Script from "../components/Script";
 
 /**
- * THE BAG: each bottle a rounded line — its picture on the pale sky, the name
- * in the heavy capitals, the size and unit price, how many, what the line
- * comes to (right-aligned), and a way to take it out — beside one summary
- * card with the total set large, the lime pill, and the ways to pay online.
- * An empty bag shows three bottles to start with.
+ * THE BAG. The heading on the pale band, running to both edges; then every
+ * bottle as a card of its own — its picture large on the pale sky, the name
+ * in the heavy capitals, the size and unit price, how many, and what the
+ * line comes to — beside one summary card with the total set large, the lime
+ * pill, and the ways to pay online. A bag holds a few bottles, so each is
+ * shown large rather than as a thumbnail in a list. An empty bag shows three
+ * bottles to start with.
  */
 export default function Bag() {
   usePageMeta("pages.bag.title", "pages.bag.description");
@@ -36,15 +38,17 @@ export default function Bag() {
   const total = lines.reduce((sum, l) => sum + l.price * l.qty, 0);
   const count = lines.reduce((n, l) => n + l.qty, 0);
   return (
-    <div className="pb-8 pt-8">
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
-        <h1 className="relative font-display text-[length:var(--size-h1)] uppercase leading-[0.95] text-ink"><T k="pages.bag.heading" /><Script k="pages.bag.script" /></h1>
-        {lines.length > 0 && <p className="text-sm text-ink-soft"><span className="font-display text-3xl tabular-nums text-ink">{count}</span>{" "}<T k="pages.bag.bottles" /></p>}
-      </div>
+    <div className="pb-8">
+      <section className="mx-[calc(var(--gutter)*-1)] mb-10 mt-4 bg-surface px-[var(--gutter)] py-10 lg:py-12">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <h1 className="relative font-display text-[length:var(--size-h1)] uppercase leading-[0.95] text-ink"><T k="pages.bag.heading" /><Script k="pages.bag.script" /></h1>
+          {lines.length > 0 && <p className="text-base text-ink-soft"><span className="font-display text-4xl tabular-nums text-ink">{count}</span>{" "}<T k="pages.bag.bottles" /></p>}
+        </div>
+      </section>
 
       {lines.length === 0 ? (
         <div className="flex flex-col gap-12">
-          <div className="flex flex-col items-start gap-6 rounded bg-surface p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col items-start gap-6 rounded border border-line p-8 lg:flex-row lg:items-center lg:justify-between">
             <T k="pages.bag.empty" as="p" className="max-w-[44ch] text-lg text-ink" />
             <Pill to="/shop" testid="bag-browse"><T k="pages.bag.browse" /></Pill>
           </div>
@@ -59,40 +63,43 @@ export default function Bag() {
         </div>
       ) : (
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-          <ul className="flex flex-col gap-4 lg:col-span-8">
-            {lines.map((l) => {
-              const p = byId.get(l.id);
-              const about = [p?.volume, formatPrice(l.price), l.variant].filter(Boolean).join(" · ");
-              return (
-                <li key={lineKey(l)} data-testid={`bag-line-${l.id}`} className="flex items-center gap-4 rounded border border-line p-3 sm:gap-6">
-                  <Link to={`/shop/${l.id}`} className="w-24 shrink-0 sm:w-32"><ProductImage src={l.image} alt={l.name} aspect="1/1" /></Link>
-                  <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="min-w-0">
-                      <Link to={`/shop/${l.id}`} className="block font-display text-xl uppercase leading-tight text-ink hover:underline">{l.name}</Link>
-                      <p className="mt-1 text-sm tabular-nums text-ink-soft">{about}</p>
+          <div className="lg:col-span-8">
+            <Grid count={lines.length} max={3}>
+              {lines.map((l) => {
+                const p = byId.get(l.id);
+                const about = [p?.volume, formatPrice(l.price), l.variant].filter(Boolean).join(" · ");
+                return (
+                  <article key={lineKey(l)} data-testid={`bag-line-${l.id}`} data-record={`products:${l.id}`}
+                    className="flex h-full flex-col overflow-hidden rounded border border-line bg-ground">
+                    <Link to={`/shop/${l.id}`} className="block"><ProductImage src={l.image} alt={l.name} aspect="4/3" className="rounded-none" /></Link>
+                    <div className="flex flex-1 flex-col gap-2 p-4">
+                      <div className="flex items-start justify-between gap-2">
+                        <Link to={`/shop/${l.id}`} className="line-clamp-2 min-h-[2.5em] font-display text-xl uppercase leading-tight text-ink hover:underline">{l.name}</Link>
+                        <button type="button" onClick={() => removeFromCart(lineKey(l))} aria-label={`${remove} ${l.name}`}
+                          className="-mr-2 -mt-2 grid h-10 w-10 shrink-0 place-items-center rounded-full text-ink-soft hover:bg-surface hover:text-ink">
+                          <Icon name="remove" size={18} />
+                        </button>
+                      </div>
+                      <p className="text-[0.8125rem] tabular-nums text-ink-soft">{about}</p>
+                      <div className="mt-auto flex items-center justify-between gap-3 pt-2">
+                        <QuantityStepper value={l.qty} onChange={(q) => setQuantity(lineKey(l), q)} />
+                        <p className="text-right font-display text-xl tabular-nums text-ink">{formatPrice(l.price * l.qty)}</p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3 sm:gap-6">
-                      <QuantityStepper value={l.qty} onChange={(q) => setQuantity(lineKey(l), q)} />
-                      <p className="ml-auto w-28 text-right font-display text-xl tabular-nums text-ink">{formatPrice(l.price * l.qty)}</p>
-                      <button type="button" onClick={() => removeFromCart(lineKey(l))} aria-label={`${remove} ${l.name}`}
-                        className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-ink-soft hover:bg-surface hover:text-ink">
-                        <Icon name="remove" size={18} />
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                  </article>
+                );
+              })}
+            </Grid>
+          </div>
 
           <aside className="flex flex-col gap-5 rounded bg-surface p-6 lg:col-span-4">
             <T k="pages.bag.summary" as="h2" className="font-display text-2xl uppercase text-ink" />
-            <dl className="flex flex-col gap-3 text-sm">
+            <dl className="flex flex-col gap-3 text-[0.9375rem]">
               <div className="flex justify-between gap-4"><dt className="text-ink-soft"><T k="pages.bag.subtotal" /></dt><dd className="tabular-nums text-ink">{formatPrice(total)}</dd></div>
               <div className="flex justify-between gap-4"><dt className="text-ink-soft"><T k="pages.bag.delivery" /></dt><dd className="text-right text-ink"><T k="pages.bag.delivery_later" /></dd></div>
             </dl>
             <p className="flex items-baseline justify-between gap-4 border-t border-line pt-4">
-              <T k="pages.bag.total" className="text-sm text-ink-soft" />
+              <T k="pages.bag.total" className="text-[0.9375rem] text-ink-soft" />
               <span data-testid="bag-total" className="font-display text-4xl tabular-nums text-ink">{formatPrice(total)}</span>
             </p>
             <Pill to="/checkout" testid="bag-checkout" className="justify-between"><T k="pages.bag.checkout" /></Pill>
@@ -101,7 +108,7 @@ export default function Bag() {
                 <T k="pages.bag.pay_with" as="p" className="text-xs uppercase tracking-widest text-ink-soft" />
                 <ul className="flex flex-wrap gap-2">
                   {methods.map((m) => (
-                    <li key={m.id} className="inline-flex items-center gap-1.5 rounded-full bg-ground px-3 py-1.5 text-xs text-ink"><Icon name={payIcon(m.icon)} size={14} />{m.name}</li>
+                    <li key={m.id} className="inline-flex items-center gap-1.5 rounded-full bg-ground px-3 py-1.5 text-[0.8125rem] text-ink"><Icon name={payIcon(m.icon)} size={14} />{m.name}</li>
                   ))}
                 </ul>
               </div>
