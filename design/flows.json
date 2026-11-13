@@ -36,7 +36,7 @@
     "steps": [
       { "action": "open", "path": "/" },
       { "action": "click", "selector": "[data-testid='ask-cta']" },
-      { "action": "expect", "selector": "[data-testid='card-tropical-glow']" }
+      { "action": "expect", "selector": "[data-testid='card-orange-turmeric']" }
     ]
   },
   {
