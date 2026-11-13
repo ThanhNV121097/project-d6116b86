@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+/* TAILWIND'S TYPOGRAPHY PLUGIN, for the long text a CMS edits (`prose`).
+   @tailwindcss/forms was here beside it and is gone: its job was to reset
+   form controls for the management area, and that area's controls are
+   shadcn/ui's now (src/components/ui), which carry their own. A plugin
+   nothing uses is a dependency somebody has to explain. */
+@plugin "@tailwindcss/typography";
+
+/* The enter and exit motion of the management kit's dialogs, menus and
+   sheets (src/components/ui, shadcn/ui): `animate-in`, `fade-in-0`,
+   `zoom-in-95`. Utilities only — nothing is emitted for a class no file
+   writes. */
+@import "tw-animate-css";
+
+/* THE TOKENS, AND WHY THIS IS `inline`.
+ *
+ * Colours and type live in theme.css as custom properties on :root, because
+ * the Studio edits that one file and the site changes without a rebuild.
+ * Tailwind only NAMES them.
+ *
+ * `@theme inline` is what keeps that true on Tailwind 4: it writes the
+ * var() straight into each utility instead of copying the value into a
+ * theme variable of its own. Without `inline`, Tailwind would emit its own
+ * --color-ground holding a snapshot, the utility would read the snapshot,
+ * and an owner's saved colour would need a build to appear — which is the
+ * whole property this architecture is built on.
+ *
+ * It is also what makes the names safe: --font-display here refers to the
+ * --font-display in theme.css rather than shadowing it, because an inline
+ * theme variable is never emitted. */
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-line: var(--line);
+  --color-field: var(--field-line);
+  --color-danger: var(--danger);
+  --color-danger-ink: var(--danger-ink);
+  --color-wash: var(--wash);
+
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-body: var(--font-body), sans-serif;
+
+  --radius: var(--radius);
+  --radius-sm: var(--radius-sm);
+
+  --container-page: var(--page);
+}
+
+/* EVERY DEFAULT BELOW IS IN `@layer base`, AND IT HAS TO BE.
+ *
+ * Tailwind 4 emits all of its own CSS inside real cascade layers, and
+ * UNLAYERED CSS BEATS LAYERED CSS whatever the specificity — a plain `p`
+ * selector outranks `.mt-6`. These rules were unlayered, which was correct
+ * on Tailwind 3 (where specificity decided and a class won), and on 4 it
+ * silently killed every utility on every element named here. Measured on the
+ * shipped scaffold's own home page: of the five utilities it writes that this
+ * block touches — `mt-6` on a <p>, `leading-[1.05]` and `tracking-tight` on
+ * the <h1>, `max-w-none` on an <img>, `underline` on an <a> — Tailwind 3
+ * honoured all five and Tailwind 4 honoured NONE. It built, it linted, it
+ * rendered, and the hero's sub-heading simply lost its 24px.
+ *
+ * So: a default a utility must be able to beat goes in here. The one rule
+ * below this block stays outside it on purpose, and says why.
+ *
+ * The border-color line is Tailwind 4's own change: an unqualified `border`
+ * defaults to currentColor where 3 used a grey, and every border in this
+ * scaffold names --line. */
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--line);
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--font-body), system-ui, sans-serif; font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display), system-ui, sans-serif; font-weight: var(--weight-display); letter-spacing: var(--tracking-display); line-height: 1.04; margin: 0; text-wrap: balance; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-decoration: none; }
+  p { margin: 0; }
+}
+
+/* A floating ContactDock never covers the end of the page: below 1024px,
+   while it is shown, the page keeps --dock-space clear at its foot.
+   UNLAYERED ON PURPOSE, and this is the one rule here that should be: its
+   selector is more specific than a class, so on Tailwind 3 it already beat a
+   padding utility. Leaving it outside the layer keeps that guarantee exactly
+   as it was — a design that writes `pb-0` on the body cannot hide the foot of
+   its own page behind the dock. */
+@media (max-width: 1023px) {
+  body:has([data-contact-dock]) { padding-bottom: var(--dock-space); }
+}
+
+/* MOTION THE STYLESHEET OWNS (src/motion). <html data-motion> carries the
+   level the owner chose; "still" and "calm" get none of this.
+
+   A product's picture answers the pointer on its card. In the base layer, so
+   a utility on the picture still wins. */
+@layer base {
+  html[data-motion="lively"] [data-record] [data-product-image] img,
+  html[data-motion="showpiece"] [data-record] [data-product-image] img {
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  html[data-motion="lively"] [data-record]:hover [data-product-image] img,
+  html[data-motion="showpiece"] [data-record]:hover [data-product-image] img {
+    transform: scale(1.05);
+  }
+}
+
+/* A thing's second picture (<ProductImage hover>): there, and unseen, until
+   the pointer is on its card on a site at least lively — then the two change
+   places. On a calmer site it is never shown, so it costs nothing to give. */
+@layer base {
+  [data-product-hover] { opacity: 0; transition: opacity 0.35s ease; }
+  [data-product-image]:has([data-product-hover]) > img:not([data-product-hover]) { transition: opacity 0.35s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  html[data-motion="lively"] [data-record]:hover [data-product-hover],
+  html[data-motion="showpiece"] [data-record]:hover [data-product-hover] { opacity: 1; }
+  html[data-motion="lively"] [data-record]:hover [data-product-image]:has([data-product-hover]) > img:not([data-product-hover]),
+  html[data-motion="showpiece"] [data-record]:hover [data-product-image]:has([data-product-hover]) > img:not([data-product-hover]) { opacity: 0; }
+}
+
+/* <Marquee>: the row is drawn twice, so half its width is one whole turn. */
+@keyframes motion-marquee {
+  to { transform: translateX(-50%); }
+}

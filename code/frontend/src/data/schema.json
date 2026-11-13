@@ -1,0 +1,134 @@
+{
+  "collections": {
+    "products": {
+      "label": "Products",
+      "fields": [
+        {
+          "key": "image",
+          "label": "Photograph",
+          "type": "image",
+          "section": "Basics",
+          "hint": "The thing alone, cut out — it stands on a sky-blue tile."
+        },
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true,
+          "section": "Basics"
+        },
+        {
+          "key": "category",
+          "label": "Department",
+          "type": "ref:categories",
+          "section": "Basics"
+        },
+        {
+          "key": "price",
+          "label": "Price",
+          "type": "price",
+          "currency": "VND",
+          "section": "Basics"
+        },
+        {
+          "key": "was",
+          "label": "Price before",
+          "type": "price",
+          "currency": "VND",
+          "section": "Basics",
+          "hint": "Shown struck through beside the price. Leave empty when nothing was reduced."
+        },
+        {
+          "key": "fact",
+          "label": "One or two words for its chip",
+          "type": "text",
+          "section": "Basics",
+          "hint": "A flavour, a size — shown on a small lime chip at the top of its card."
+        },
+        {
+          "key": "stock",
+          "label": "In stock",
+          "type": "number",
+          "section": "Basics"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "text",
+          "options": [
+            [
+              "draft",
+              "Draft"
+            ],
+            [
+              "live",
+              "Live"
+            ]
+          ],
+          "section": "Basics"
+        },
+        {
+          "key": "deal",
+          "label": "In today's deals",
+          "type": "bool",
+          "section": "Basics",
+          "hint": "Shown in the first row of the home page."
+        },
+        {
+          "key": "description",
+          "label": "Description",
+          "type": "longtext",
+          "section": "Basics"
+        },
+        {
+          "key": "options",
+          "label": "Options",
+          "type": "list",
+          "section": "Details",
+          "hint": "Colours or sizes a buyer chooses between."
+        },
+        {
+          "key": "material",
+          "label": "Made of",
+          "type": "text",
+          "section": "Details"
+        },
+        {
+          "key": "care",
+          "label": "Care",
+          "type": "longtext",
+          "section": "Details"
+        },
+        {
+          "key": "image_back",
+          "label": "A second picture",
+          "type": "image",
+          "section": "More pictures"
+        },
+        {
+          "key": "image_detail",
+          "label": "A detail",
+          "type": "image",
+          "section": "More pictures"
+        }
+      ]
+    },
+    "categories": {
+      "label": "Departments",
+      "fields": [
+        {
+          "key": "image",
+          "label": "Picture for the circle",
+          "type": "image",
+          "hint": "One thing from the department, cut out. It sits on a pale disc."
+        },
+        {
+          "key": "name",
+          "label": "Name",
+          "type": "text",
+          "required": true
+        }
+      ]
+    }
+  }
+}

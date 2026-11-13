@@ -1,0 +1,83 @@
+[
+  {
+    "name": "From the header's pill to the shop",
+    "steps": [
+      {
+        "action": "open",
+        "path": "/"
+      },
+      {
+        "action": "click",
+        "selector": "[data-testid='header-cta']"
+      },
+      {
+        "action": "expect",
+        "selector": "[data-testid='shop-count']"
+      }
+    ]
+  },
+  {
+    "name": "Open the first thing from its card on the hero",
+    "steps": [
+      {
+        "action": "open",
+        "path": "/"
+      },
+      {
+        "action": "click",
+        "selector": "[data-testid='float-stoneware-teapot']"
+      },
+      {
+        "action": "expect",
+        "selector": "[data-testid='product-name']",
+        "text": "Stoneware Teapot"
+      }
+    ]
+  },
+  {
+    "name": "Put a thing in the bag and check out",
+    "steps": [
+      {
+        "action": "open",
+        "path": "/shop/stoneware-teapot"
+      },
+      {
+        "action": "click",
+        "selector": "[data-testid='product-add']"
+      },
+      {
+        "action": "open",
+        "path": "/bag"
+      },
+      {
+        "action": "expect",
+        "selector": "[data-testid='bag-line-stoneware-teapot']"
+      },
+      {
+        "action": "click",
+        "selector": "[data-testid='bag-checkout']"
+      },
+      {
+        "action": "expect",
+        "selector": "[data-testid='place-order']"
+      }
+    ]
+  },
+  {
+    "name": "From the second photograph to the range",
+    "steps": [
+      {
+        "action": "open",
+        "path": "/"
+      },
+      {
+        "action": "click",
+        "selector": "[data-testid='ask-cta']"
+      },
+      {
+        "action": "expect",
+        "selector": "[data-testid='card-over-ear']"
+      }
+    ]
+  }
+]

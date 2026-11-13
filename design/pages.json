@@ -1,0 +1,13 @@
+[
+  { "path": "/", "name": "Home" },
+  { "path": "/shop", "name": "Shop" },
+  { "path": "/shop/:id", "name": "Product", "example": "/shop/stoneware-teapot" },
+  { "path": "/bag", "name": "Bag" },
+  { "path": "/checkout", "name": "Check out" },
+  { "path": "/contact", "name": "Contact" },
+  { "path": "/admin/sign-in", "name": "Sign in" },
+  { "path": "/admin", "name": "Overview", "auth": true, "dashboard": true },
+  { "path": "/admin/products", "name": "Products", "auth": true, "dashboard": true },
+  { "path": "/admin/products/:id", "name": "Product", "example": "/admin/products/stoneware-teapot", "auth": true, "dashboard": true },
+  { "path": "/admin/kinds", "name": "Departments", "auth": true, "dashboard": true }
+]

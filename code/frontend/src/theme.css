@@ -1,0 +1,194 @@
+/* FIZZ, BUILT. The tokens of the template "Fizz" as the owner's picture has
+   them (design/template.jpg): a white page, a deep bottle green for the type,
+   ONE lime for everything pressed, a pale lime for the quiet bands — and three
+   faces with three jobs: a heavy condensed sans in capitals for headings, a
+   plain sans for reading, and a script for the few handwritten words laid
+   across the end of a heading.
+   
+   A project that starts here may re-tint the hues for its own business — each
+   token keeping its role: the accent stays ONE loud colour with dark type on
+   it, the ink stays deep. The lime never goes onto a photograph, only onto the
+   chips and buttons laid over one. */
+:root {
+  --ground: #FFFFFF;
+  --surface: #F7FBE2;
+  --ink: #002F1F;
+  --ink-soft: #5C6B5F;
+  --accent: #C5EB00;
+  --accent-ink: #002F1F;
+  /* WHAT IS ABOUT TO BE LOST, and nothing else. A site's palette is the four
+     colours its owner chose and this is not one of them: it is the colour of
+     a delete button and of a field that failed, which have to read as that
+     whatever the brand is. The management kit's destructive actions paint
+     with it; a design reaches for it only where something is wrong. */
+  --danger: #B42318;
+  --danger-ink: #FFFFFF;
+  /* The quiet fill of something selected or hovered — a menu item you are
+     on, a row under the pointer, a tab's track. Derived from the palette
+     rather than chosen, so it follows whatever the owner picked. */
+  --wash: color-mix(in srgb, var(--ink) 6%, var(--surface));
+  --line: rgba(0, 47, 31, 0.12);
+  /* The edge of a form field, which is NOT --line. --line is a hairline
+     between sections and is meant to be nearly invisible; an input has to be
+     findable. One run set --line to #2A2B30 on a #0B0B0C ground — correct
+     for a divider — and every field on the site came out at 1.39:1 against
+     the page, ten defects the walk reported as field-edge. Give this one at
+     least 3:1 against --ground. */
+  --field-line: rgba(0, 47, 31, 0.45);
+  /* One mode. A site has the palette its chosen direction settled on and no
+     other: a second mode is a second design, and the ground nobody chose is
+     the ground nobody checks. color-scheme tells the browser which it is, so
+     form controls, scrollbars and the page's own background match. Set it to
+     dark when this palette is a dark one. */
+  color-scheme: light;
+
+  /* House style: one clean sans, headings confident but not heavy — an h1
+     at most 76px and an h2 at most 52px at 1440px. Inter is the fallback a
+     design falls back TO, not the one it falls into by saying nothing: name
+     the face this business uses, even when the answer is Inter. */
+  --font-display: "Anton";
+  --font-body: "Inter";
+  --weight-display: 400;
+  --tracking-display: 0;
+  /* The scale a landing page wants, which is not the scale a shop wants.
+     Choose both for what this site has to fit; 76px / 52px is the ceiling,
+     not the target. */
+  --size-h1: clamp(2.5rem, 4.45vw, 4rem);
+  --size-h2: clamp(2rem, 3.1vw, 2.75rem);
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  /* Spacing, shadow and motion: one scale each, so a story can always name a
+     value. A category the design does not use stays defined and unused. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --shadow-sm: 0 1px 2px rgba(27, 25, 23, 0.06);
+  --shadow-md: 0 6px 24px -12px rgba(0, 47, 31, 0.35);
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --page: 1584px;
+  --gutter: clamp(20px, 5.5vw, 72px);
+  --header-h: 64px;
+  /* What a page keeps clear at its foot below 1024px while ContactDock
+     floats there: the 56px buttons, their 16px offset and a margin. */
+  --dock-space: calc(88px + env(safe-area-inset-bottom, 0px));
+  /* The tile behind a product picture (ProductImage). Light in both modes:
+     the tools cut products out of a white studio backdrop, and a white or
+     silver product cut out onto a dark ground loses its shading. */
+  --product-ground: #DCEBF5;
+  /* Words drawn ON that tile — a <Picture> block's caption where a product
+     has no photograph yet. The tile is light in both modes, so --ink-soft
+     (light on a dark site) was invisible there. */
+  --product-ground-ink: #5C6B5F;
+  /* The ground a product's PHOTOGRAPH is multiplied onto when it is kept
+     whole rather than cut out (a .jpg in <ProductImage>): an open thing —
+     spokes, slats, a handle — whose white takes this colour, gaps included.
+     Light, always: on a strong colour a white thing disappears into it. */
+  --product-photo-ground: #E3EEF6;
+
+  /* The ground and the ink of a <Picture> block standing where a photograph
+     is not there yet. The site's own surface by default; <ProductImage>
+     re-points them at its light tile, because a block painted --surface
+     inside a lit tile was a dark hole in the grid. */
+  --picture-ground: var(--surface);
+  --picture-ink: var(--ink-soft);
+
+  /* THE SCRIPT. Used only through <Script>: three or four handwritten words
+     across the end of a heading. A mark, never a sentence. */
+  --font-accent: "Caveat";
+  /* A flavour stands on sky: the tile a cut-out is placed on, lighter at its
+     foot. */
+  --sky-top: #8EC0E3;
+  --sky-foot: #DCEBF5;
+  /* Type laid on a photograph, the photograph's stand-in until there is one,
+     and the scrim that keeps white type readable on a bright sky. */
+  --on-photo: #FFFFFF;
+  --photo-deep: #2F6F9E;
+  --scrim: rgba(0, 47, 31, 0.45);
+  /* Under the script where it lies on a photograph: its own shadow, in the
+     deep green, so the picture itself is left bright. */
+  --script-shadow: rgba(0, 47, 31, 0.85);
+  --glass: rgba(0, 47, 31, 0.52);
+  --glass-line: rgba(255, 255, 255, 0.35);
+}
+
+/* THE MANAGEMENT AREA IS AN APPLICATION, AND IT IS NOT THIS SITE.
+ *
+ * DESIGN PRINCIPLES already says so about its SHAPE — a menu down the left,
+ * no marketing header, no hero, no footer, dense rather than airy — and
+ * DashboardLayout already builds that shape. What it did not say was
+ * anything about its COLOURS, so a CMS inherited whatever the owner's
+ * direction chose and came out, on one real build, hot pink on pale blue.
+ *
+ * The public site is the owner's brand. The management area is a tool they
+ * use at work, every day, reading rows against each other — and the same
+ * tool in every project this product builds. So it has ONE look, fixed here,
+ * and a design does not restyle it.
+ *
+ * NOT A SECOND MODE, and the distinction is load-bearing: a second mode is a
+ * palette a VISITOR can land in, through a switch or their operating
+ * system, which nobody checked. This is a scope on one area of one site,
+ * reached only by signing in and going to it. designprint.Second looks for
+ * [data-theme] and prefers-color-scheme, and this is neither — deliberately,
+ * so the direction lock and the walk's second-mode check stay exactly as
+ * strict as they were.
+ *
+ * It overrides colour, radius and elevation. It does NOT override the
+ * typeface: a different face in the CMS makes it feel like a different
+ * product, and the owner's own face at a working size is right.
+ *
+ * The values are Tailwind's own neutral scale — slate 50/200/500/900 and
+ * blue 600 — which is the genre every management screen is drawn in. */
+[data-dashboard] {
+  --ground: #F8FAFC;
+  --surface: #FFFFFF;
+  --ink: #0F172A;
+  --ink-soft: #64748B;
+  --accent: #2563EB;
+  --accent-ink: #FFFFFF;
+  --line: #E2E8F0;
+  --field-line: #CBD5E1;
+
+  /* Dense, not airy: a person reading rows wants more of them on the screen. */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 12px -6px rgba(15, 23, 42, 0.18);
+
+  /* A picture inside the CMS — a product thumbnail in a row — sits on the
+     same light tile as everywhere else, so a cut-out keeps its shading. */
+  --picture-ground: #F1F5F9;
+  --picture-ink: #64748B;
+
+  --danger: #DC2626;
+  --danger-ink: #FFFFFF;
+  --wash: #F1F5F9;
+}
+
+/* THE SCOPE'S OWN GROUND AND INK, IN A LAYER — and they were not.
+   Two declarations used to sit in the block above, unlayered, and on
+   Tailwind 4 unlayered CSS beats every utility whatever the specificity. That
+   was invisible while the only element carrying the attribute was the layout
+   itself. It stops being invisible the moment the attribute goes onto a
+   PORTALLED part so that its tokens resolve — a dialog, a menu, a tooltip —
+   because the part's own bg-surface then loses to this rule and a tooltip
+   whose whole look is light ink on a dark bubble is given dark ink. In the
+   base layer they are defaults a utility can override, which is all they
+   were ever meant to be. */
+@layer base {
+  [data-dashboard] {
+    background-color: var(--ground);
+    color: var(--ink);
+  }
+}
+

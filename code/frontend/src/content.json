@@ -1,0 +1,228 @@
+{
+  "site": {
+    "name": "Sample & Co.",
+    "logo": "",
+    "description": "A short, bright range of things for the kitchen, the house and the desk.",
+    "locale": "vi-VN"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Shop",
+        "href": "/shop"
+      },
+      {
+        "label": "Kitchen",
+        "href": "/shop?category=kitchen"
+      },
+      {
+        "label": "Audio",
+        "href": "/shop?category=audio"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "cta": {
+      "label": "Get yours",
+      "href": "/shop"
+    },
+    "menu": {
+      "open": "Open menu",
+      "close": "Close menu"
+    }
+  },
+  "header": {
+    "account": "Shop sign-in",
+    "bag": "Cart"
+  },
+  "hero": {
+    "headline": "Sample & Co. — a short, bright range for every day",
+    "word": "Everyday",
+    "script": "Yes, all of it!",
+    "image": ""
+  },
+  "home": {
+    "range": {
+      "chip": "Our range",
+      "title": "Twenty things, endless everyday use.",
+      "script": "Pick your own"
+    },
+    "notes": {
+      "title": "Small notes from the shop",
+      "script": "Honestly said",
+      "items": [
+        {
+          "line": "Every one of these is on our own shelf at home. That is how it got onto this one.",
+          "image": ""
+        },
+        {
+          "line": "We keep the range short on purpose — if we would not use it daily, it is not here.",
+          "image": ""
+        },
+        {
+          "line": "Ordered by four in the afternoon, it leaves us the next working day.",
+          "image": ""
+        }
+      ]
+    },
+    "ask": {
+      "title": "Ready to find yours?",
+      "script": "You're next!",
+      "line": "Start with the whole range, or go straight to the part of the house you are buying for.",
+      "cta": "Explore the range",
+      "image": ""
+    },
+    "write": {
+      "title": "Say hello.",
+      "script": "Get in touch!",
+      "cta": "Write to us"
+    }
+  },
+  "footer": {
+    "line": "Sample & Co. — a short, bright range of things for the kitchen, the house and the desk.",
+    "departments": "The range",
+    "help": "Help",
+    "contact": "Contact us",
+    "bag": "Your bag",
+    "admin": "Shop sign-in",
+    "word": "Everyday",
+    "script": "Try it!"
+  },
+  "credits": {
+    "label": "Photos"
+  },
+  "contact": {
+    "heading": "Ask us anything",
+    "phone": "",
+    "zalo": "",
+    "email": "",
+    "address": "",
+    "hours": "",
+    "dock": {
+      "call": "Call us",
+      "zalo": "Message us on Zalo"
+    },
+    "form": {
+      "name": "Your name",
+      "reply_to": "Phone or email",
+      "message": "Your message",
+      "send": "Send",
+      "sending": "Sending…",
+      "sent": "Thank you — we have your message and will answer soon.",
+      "offline": "This form is not connected yet — call or message us instead.",
+      "fields": {
+        "address": "Where to deliver"
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "title": "Sample & Co.",
+      "description": "A short, bright range of things for the kitchen, the house and the desk."
+    },
+    "shop": {
+      "title": "Shop",
+      "description": "Everything in the shop, by department.",
+      "heading": "All departments",
+      "crumb": "Shop",
+      "count": "products",
+      "filter_department": "Department",
+      "clear": "Show everything",
+      "empty": "Nothing in the shop matches that.",
+      "searching": "Results for",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "product": {
+      "missing": "That is not in the shop any more.",
+      "back": "Back to the shop",
+      "option": "Choose",
+      "quantity": "Quantity",
+      "add": "Add to bag",
+      "added": "In your bag",
+      "in_stock": "In stock",
+      "low": "Only a few left",
+      "out": "Out of stock",
+      "saved": "You save",
+      "delivery": "Sent the next working day",
+      "returns": "Fourteen days to send it back",
+      "tab_about": "About it",
+      "tab_details": "Details",
+      "tab_care": "Care",
+      "spec_department": "Department",
+      "spec_material": "Made of",
+      "spec_options": "Comes in",
+      "related": "More from this department"
+    },
+    "bag": {
+      "title": "Your bag",
+      "description": "What you have chosen.",
+      "heading": "Your bag",
+      "empty": "Nothing in your bag yet.",
+      "browse": "See the shop",
+      "total": "Total",
+      "checkout": "Check out",
+      "remove": "Remove",
+      "drawer_pay": "Check out"
+    },
+    "checkout": {
+      "title": "Check out",
+      "description": "Tell us where to send it.",
+      "heading": "Check out",
+      "lead": "Send your order and we confirm it by message, with the delivery charge. Nothing is charged on this page.",
+      "summary": "Your order",
+      "total": "Total",
+      "empty": "Your bag is empty."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "How to reach the shop.",
+      "lead": "Message us about an order, a product or a return. We answer the same day.",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Find us",
+      "hours": "Open"
+    },
+    "admin": {
+      "nav": {
+        "overview": "Overview",
+        "catalogue": "Catalogue",
+        "products": "Products",
+        "kinds": "Departments"
+      },
+      "overview": {
+        "title": "Overview",
+        "products": "Products",
+        "drafts": "still in draft",
+        "kinds": "Departments",
+        "low": "Running low",
+        "low_note": "under ten left",
+        "worth": "Stock on the shelf",
+        "worth_note": "at the prices shown",
+        "low_title": "Running low",
+        "low_none": "Nothing is running low.",
+        "col_product": "Product",
+        "col_kind": "Department",
+        "col_stock": "In stock"
+      },
+      "products": {
+        "title": "Products",
+        "search": "Search by name",
+        "status": "Status",
+        "live": "Live",
+        "draft": "Draft"
+      },
+      "kinds": {
+        "title": "Departments"
+      },
+      "signin": {
+        "title": "Welcome back",
+        "description": "Sign in to run the shop.",
+        "note": "Ask the shop's owner for an account."
+      }
+    }
+  },
+  "strip": "Sent the next working day — for the kitchen, the house and everything in between."
+}
