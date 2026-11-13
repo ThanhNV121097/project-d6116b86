@@ -77,7 +77,7 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
   const input = "w-full appearance-none rounded-[var(--radius-sm)] border border-field bg-ground px-4 py-3 text-ink focus:border-ink focus:outline-none";
   const card = (checked: boolean) => `relative flex cursor-pointer gap-3 rounded border p-4 transition-colors ${checked ? "border-ink bg-surface" : "border-line hover:border-field"}`;
   return (
-    <form onSubmit={submit} className={`relative grid gap-10 lg:grid-cols-12 lg:items-start ${className}`}>
+    <form onSubmit={submit} className={`relative grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start ${className}`}>
       <div className="flex min-w-0 flex-col gap-10 lg:col-span-7">
         <Step n={1} k="pages.checkout.step_contact">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -129,7 +129,7 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
         </Step>
       </div>
 
-      <aside className="flex flex-col gap-5 rounded bg-surface p-6 lg:col-span-5">
+      <aside className="flex min-w-0 flex-col gap-5 rounded bg-surface p-6 lg:col-span-5">
         <T k="pages.checkout.summary" as="h2" className="font-display text-2xl uppercase text-ink" />
         <ul className="flex flex-col gap-3">
           {lines.map((l) => (
