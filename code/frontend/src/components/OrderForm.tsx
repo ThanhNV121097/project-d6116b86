@@ -44,7 +44,7 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
   const fee = typeof option?.fee === "number" ? option.fee : null;
   const total = subtotal + (fee ?? 0);
 
-  async function submit(e: FormEvent<HTMLFormElement>) {
+  function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!method) {
       setProblem(choosePay);
@@ -59,27 +59,25 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
       delivery: option?.name ?? "", payment: method.name, lines, subtotal, fee, total,
     };
     setState("paying");
-    try {
-      if (canSend) {
-        await sendEnquiry({
-          name: order.name, reply_to: order.reply, website: value("website"),
-          message: [order.ref, ...lines.map((l) => `${l.qty} × ${l.name} — ${formatPrice(l.price * l.qty)}`), order.note].filter(Boolean).join("\n"),
-          details: { order: order.ref, delivery: order.delivery, address: order.address, payment: order.payment, total: formatPrice(total) },
-        });
-      }
-      saveOrder(order);
-      clearCart();
-      navigate("/order");
-    } catch (err) {
-      setProblem(err instanceof Error ? err.message : "");
-      setState("failed");
+    // The order also goes to the owner's inbox when the site is connected.
+    // That message never stands in the way of the (mock) payment, which the
+    // payment provider's own step replaces after approval.
+    if (canSend) {
+      void sendEnquiry({
+        name: order.name, reply_to: order.reply, website: value("website"),
+        message: [order.ref, ...lines.map((l) => `${l.qty} × ${l.name} — ${formatPrice(l.price * l.qty)}`), order.note].filter(Boolean).join("\n"),
+        details: { order: order.ref, delivery: order.delivery, address: order.address, payment: order.payment, total: formatPrice(total) },
+      }).catch(() => undefined);
     }
+    saveOrder(order);
+    clearCart();
+    navigate("/order");
   }
 
   const input = "w-full appearance-none rounded-[var(--radius-sm)] border border-field bg-ground px-4 py-3 text-ink focus:border-ink focus:outline-none";
   const card = (checked: boolean) => `relative flex cursor-pointer gap-3 rounded border p-4 transition-colors ${checked ? "border-ink bg-surface" : "border-line hover:border-field"}`;
   return (
-    <form onSubmit={(e) => void submit(e)} className={`relative grid gap-10 lg:grid-cols-12 lg:items-start ${className}`}>
+    <form onSubmit={submit} className={`relative grid gap-10 lg:grid-cols-12 lg:items-start ${className}`}>
       <div className="flex flex-col gap-10 lg:col-span-7">
         <Step n={1} k="pages.checkout.step_contact">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -99,9 +97,9 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent text-accent-ink"><Icon name={d.id === "pickup" ? "store" : "shipping"} size={18} /></span>
                     <span className="min-w-0 flex-1">
                       <span className="block font-medium text-ink">{d.name}</span>
-                      {d.note && <span className="block text-xs text-ink-soft">{d.note}</span>}
+                      <span className="block text-[0.8125rem] tabular-nums text-ink-soft">{typeof d.fee === "number" ? formatPrice(d.fee) : tbc}</span>
+                      {d.note && <span className="block text-[0.8125rem] text-ink-soft">{d.note}</span>}
                     </span>
-                    <span className="text-right text-xs tabular-nums text-ink-soft">{typeof d.fee === "number" ? formatPrice(d.fee) : tbc}</span>
                   </label>
                 );
               })}
@@ -135,7 +133,7 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
         <T k="pages.checkout.summary" as="h2" className="font-display text-2xl uppercase text-ink" />
         <ul className="flex flex-col gap-3">
           {lines.map((l) => (
-            <li key={lineKey(l)} className="flex items-center gap-4">
+            <li key={lineKey(l)} data-record={`products:${l.id}`} className="flex items-center gap-4">
               <div className="w-16 shrink-0"><ProductImage src={l.image} alt={l.name} aspect="1/1" /></div>
               <div className="min-w-0 flex-1">
                 <p className="truncate font-medium text-ink">{l.name}</p>
