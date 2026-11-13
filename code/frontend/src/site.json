@@ -1,5 +1,5 @@
 {
-  "key": "",
-  "api": "",
-  "motion": "lively"
+  "api": "http://localhost:8080/site-api/v1",
+  "key": "s_qrn11fV-QqC2w2b8VBa2mYVT",
+  "motion": "showpiece"
 }
