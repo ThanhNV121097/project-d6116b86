@@ -64,7 +64,7 @@ export default function Bag() {
       ) : (
         <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-8">
-            <Grid count={lines.length} max={3}>
+            <Grid count={lines.length} max={3} phone={1}>
               {lines.map((l) => {
                 const p = byId.get(l.id);
                 const about = [p?.volume, formatPrice(l.price), l.variant].filter(Boolean).join(" · ");
