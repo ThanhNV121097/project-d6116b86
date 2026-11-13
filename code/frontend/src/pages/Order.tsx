@@ -75,7 +75,7 @@ export default function Order() {
             <Link to="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-ink underline-offset-4 hover:underline"><Icon name="chat" size={16} /><T k="pages.order.ask" /></Link>
           </div>
         </div>
-        <div className="relative min-h-[26rem] overflow-hidden rounded bg-[var(--photo-deep)] lg:col-span-6 lg:-mr-[var(--gutter)] lg:rounded-r-none">
+        <div className="relative -mx-[var(--gutter)] min-h-[26rem] overflow-hidden bg-[var(--photo-deep)] lg:col-span-6 lg:ml-0 lg:rounded-l">
           {image && <Picture src={image} alt="" loading="eager" width={1280} height={853} className="absolute inset-0 h-full w-full object-cover" />}
           <div data-tilt="" className="absolute bottom-4 left-4 right-4 rounded bg-ground p-5 text-ink shadow-[var(--shadow-md)] sm:right-auto sm:w-80">
             <T k="pages.order.total" as="p" className="text-xs uppercase tracking-widest text-ink-soft" />
@@ -88,7 +88,7 @@ export default function Order() {
 
       <section className="mt-16">
         <h2 className="relative mb-6 font-display text-[length:var(--size-h2)] uppercase leading-[0.95] text-ink"><T k="pages.order.what" /><Script k="pages.order.what_script" /></h2>
-        <Grid count={order.lines.length} max={4}>
+        <Grid count={order.lines.length} max={4} phone={1}>
           {order.lines.map((l) => (
             <article key={`${l.id}-${l.variant ?? ""}`} data-record={`products:${l.id}`} className="flex h-full flex-col overflow-hidden rounded border border-line bg-ground">
               <ProductImage src={l.image} alt={l.name} aspect="4/3" className="rounded-none" />
