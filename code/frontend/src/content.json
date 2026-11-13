@@ -1,228 +1,284 @@
 {
-  "site": {
-    "name": "Sample & Co.",
-    "logo": "",
-    "description": "A short, bright range of things for the kitchen, the house and the desk.",
-    "locale": "vi-VN"
-  },
-  "nav": {
-    "links": [
-      {
-        "label": "Shop",
-        "href": "/shop"
-      },
-      {
-        "label": "Kitchen",
-        "href": "/shop?category=kitchen"
-      },
-      {
-        "label": "Audio",
-        "href": "/shop?category=audio"
-      },
-      {
-        "label": "Contact",
-        "href": "/contact"
-      }
-    ],
-    "cta": {
-      "label": "Get yours",
-      "href": "/shop"
-    },
-    "menu": {
-      "open": "Open menu",
-      "close": "Close menu"
-    }
-  },
-  "header": {
-    "account": "Shop sign-in",
-    "bag": "Cart"
-  },
-  "hero": {
-    "headline": "Sample & Co. — a short, bright range for every day",
-    "word": "Everyday",
-    "script": "Yes, all of it!",
-    "image": ""
-  },
-  "home": {
-    "range": {
-      "chip": "Our range",
-      "title": "Twenty things, endless everyday use.",
-      "script": "Pick your own"
-    },
-    "notes": {
-      "title": "Small notes from the shop",
-      "script": "Honestly said",
-      "items": [
-        {
-          "line": "Every one of these is on our own shelf at home. That is how it got onto this one.",
-          "image": ""
-        },
-        {
-          "line": "We keep the range short on purpose — if we would not use it daily, it is not here.",
-          "image": ""
-        },
-        {
-          "line": "Ordered by four in the afternoon, it leaves us the next working day.",
-          "image": ""
-        }
-      ]
-    },
-    "ask": {
-      "title": "Ready to find yours?",
-      "script": "You're next!",
-      "line": "Start with the whole range, or go straight to the part of the house you are buying for.",
-      "cta": "Explore the range",
-      "image": ""
-    },
-    "write": {
-      "title": "Say hello.",
-      "script": "Get in touch!",
-      "cta": "Write to us"
-    }
-  },
-  "footer": {
-    "line": "Sample & Co. — a short, bright range of things for the kitchen, the house and the desk.",
-    "departments": "The range",
-    "help": "Help",
-    "contact": "Contact us",
-    "bag": "Your bag",
-    "admin": "Shop sign-in",
-    "word": "Everyday",
-    "script": "Try it!"
-  },
-  "credits": {
-    "label": "Photos"
-  },
   "contact": {
-    "heading": "Ask us anything",
-    "phone": "",
-    "zalo": "",
-    "email": "",
     "address": "",
-    "hours": "",
     "dock": {
       "call": "Call us",
       "zalo": "Message us on Zalo"
     },
+    "email": "",
     "form": {
-      "name": "Your name",
-      "reply_to": "Phone or email",
+      "fields": {
+        "address": "Delivery address"
+      },
       "message": "Your message",
+      "name": "Your name",
+      "offline": "This form is not connected yet — call or message us instead.",
+      "reply_to": "Phone or email",
       "send": "Send",
       "sending": "Sending…",
-      "sent": "Thank you — we have your message and will answer soon.",
-      "offline": "This form is not connected yet — call or message us instead.",
-      "fields": {
-        "address": "Where to deliver"
+      "sent": "Thank you — we have your message and will answer soon."
+    },
+    "heading": "Say hello",
+    "hours": "",
+    "phone": "",
+    "zalo": ""
+  },
+  "credits": {
+    "label": "Photos"
+  },
+  "footer": {
+    "admin": "Shop sign-in",
+    "bag": "Your bag",
+    "contact": "Contact us",
+    "departments": "Kinds",
+    "help": "Help",
+    "line": "Ép — cold-pressed juice in bottles, ordered and paid online.",
+    "script": "Try one!",
+    "word": "Pressed"
+  },
+  "header": {
+    "account": "Shop sign-in",
+    "bag": "Bag"
+  },
+  "hero": {
+    "alt": "A glass of orange juice held out in the sun",
+    "headline": "Ép — cold-pressed juice in bottles, ordered and paid online",
+    "image": "/images/hero.jpg",
+    "script": "Straight from the fruit!",
+    "word": "Squeezed"
+  },
+  "home": {
+    "ask": {
+      "cta": "Choose your juice",
+      "image": "/images/ask.jpg",
+      "line": "Choose from fruit, greens and roots, and pay for your bottles online.",
+      "script": "Pour it out!",
+      "title": "Ready for a cold one?"
+    },
+    "band": {
+      "label": "What goes into the bottles"
+    },
+    "notes": {
+      "chip": "Good to know",
+      "items": [
+        {
+          "image": "/images/note-glass.jpg",
+          "line": "Pressed juice settles in the bottle. Give it a shake before you open it.",
+          "title": "Shake it"
+        },
+        {
+          "image": "/images/note-cold.jpg",
+          "line": "Into the fridge as soon as it arrives, and drink it cold.",
+          "title": "Keep it cold"
+        },
+        {
+          "image": "/images/note-fresh.jpg",
+          "line": "Fresh juice is at its brightest in the first days. Open it, finish it.",
+          "title": "Drink it soon"
+        }
+      ],
+      "script": "Worth knowing!",
+      "title": "Three things about fresh juice"
+    },
+    "range": {
+      "chip": "Our juices",
+      "cta": "See every bottle",
+      "script": "Pick a colour!",
+      "title": "Fruit, greens and roots, pressed cold."
+    },
+    "write": {
+      "cta": "Send a message",
+      "script": "Just write!",
+      "title": "Rather ask first?"
+    }
+  },
+  "nav": {
+    "cta": {
+      "href": "/shop",
+      "label": "Get juice"
+    },
+    "links": [
+      {
+        "href": "/shop",
+        "label": "Juices"
+      },
+      {
+        "href": "/shop?category=fruit",
+        "label": "Fruit"
+      },
+      {
+        "href": "/shop?category=greens",
+        "label": "Greens"
+      },
+      {
+        "href": "/shop?category=roots",
+        "label": "Roots \u0026 spice"
+      },
+      {
+        "href": "/contact",
+        "label": "Contact"
       }
+    ],
+    "menu": {
+      "close": "Close menu",
+      "open": "Open menu"
     }
   },
   "pages": {
-    "home": {
-      "title": "Sample & Co.",
-      "description": "A short, bright range of things for the kitchen, the house and the desk."
-    },
-    "shop": {
-      "title": "Shop",
-      "description": "Everything in the shop, by department.",
-      "heading": "All departments",
-      "crumb": "Shop",
-      "count": "products",
-      "filter_department": "Department",
-      "clear": "Show everything",
-      "empty": "Nothing in the shop matches that.",
-      "searching": "Results for",
-      "previous": "Previous",
-      "next": "Next"
-    },
-    "product": {
-      "missing": "That is not in the shop any more.",
-      "back": "Back to the shop",
-      "option": "Choose",
-      "quantity": "Quantity",
-      "add": "Add to bag",
-      "added": "In your bag",
-      "in_stock": "In stock",
-      "low": "Only a few left",
-      "out": "Out of stock",
-      "saved": "You save",
-      "delivery": "Sent the next working day",
-      "returns": "Fourteen days to send it back",
-      "tab_about": "About it",
-      "tab_details": "Details",
-      "tab_care": "Care",
-      "spec_department": "Department",
-      "spec_material": "Made of",
-      "spec_options": "Comes in",
-      "related": "More from this department"
-    },
-    "bag": {
-      "title": "Your bag",
-      "description": "What you have chosen.",
-      "heading": "Your bag",
-      "empty": "Nothing in your bag yet.",
-      "browse": "See the shop",
-      "total": "Total",
-      "checkout": "Check out",
-      "remove": "Remove",
-      "drawer_pay": "Check out"
-    },
-    "checkout": {
-      "title": "Check out",
-      "description": "Tell us where to send it.",
-      "heading": "Check out",
-      "lead": "Send your order and we confirm it by message, with the delivery charge. Nothing is charged on this page.",
-      "summary": "Your order",
-      "total": "Total",
-      "empty": "Your bag is empty."
-    },
-    "contact": {
-      "title": "Contact",
-      "description": "How to reach the shop.",
-      "lead": "Message us about an order, a product or a return. We answer the same day.",
-      "phone": "Phone",
-      "email": "Email",
-      "address": "Find us",
-      "hours": "Open"
-    },
     "admin": {
+      "kinds": {
+        "title": "Kinds"
+      },
       "nav": {
+        "catalogue": "Menu",
+        "kinds": "Kinds",
         "overview": "Overview",
-        "catalogue": "Catalogue",
-        "products": "Products",
-        "kinds": "Departments"
+        "products": "Juices"
       },
       "overview": {
-        "title": "Overview",
-        "products": "Products",
-        "drafts": "still in draft",
-        "kinds": "Departments",
-        "low": "Running low",
-        "low_note": "under ten left",
-        "worth": "Stock on the shelf",
-        "worth_note": "at the prices shown",
-        "low_title": "Running low",
-        "low_none": "Nothing is running low.",
-        "col_product": "Product",
-        "col_kind": "Department",
-        "col_stock": "In stock"
+        "drafts": "in draft",
+        "kinds": "Kinds",
+        "kinds_note": "Menu sections",
+        "live": "On the menu",
+        "live_note": "In the shop",
+        "payments": "Ways to pay",
+        "payments_note": "At checkout",
+        "products": "Juices",
+        "title": "Overview"
       },
       "products": {
-        "title": "Products",
+        "draft": "Draft",
+        "live": "Live",
         "search": "Search by name",
         "status": "Status",
-        "live": "Live",
-        "draft": "Draft"
-      },
-      "kinds": {
-        "title": "Departments"
+        "title": "Juices"
       },
       "signin": {
-        "title": "Welcome back",
-        "description": "Sign in to run the shop.",
-        "note": "Ask the shop's owner for an account."
+        "description": "Sign in to run Ép.",
+        "note": "Ask the shop's owner for an account.",
+        "title": "Welcome back"
       }
+    },
+    "bag": {
+      "bottles": "bottles",
+      "browse": "See the juices",
+      "checkout": "Check out",
+      "delivery": "Delivery",
+      "delivery_later": "Chosen at checkout",
+      "description": "The bottles you have chosen.",
+      "drawer_pay": "Check out",
+      "empty": "Nothing in your bag yet. Start with a bottle below, or see every juice.",
+      "heading": "Your bag",
+      "pay_with": "Pay online by",
+      "remove": "Remove",
+      "script": "Nearly yours!",
+      "start": "Start with one of these",
+      "subtotal": "Bottles",
+      "summary": "Your order",
+      "title": "Your bag",
+      "total": "Total"
+    },
+    "checkout": {
+      "after": "Your order and payment go straight to the shop, and the answer comes to the phone or email you gave.",
+      "choose_pay": "Choose how you pay first.",
+      "description": "Who it is for, how it reaches you, and how you pay.",
+      "empty": "Your bag is empty, so there is nothing to pay for yet.",
+      "fee_tbc": "To be confirmed",
+      "heading": "Check out",
+      "lead": "Three steps: who the bottles are for, how they reach you, and how you pay online.",
+      "note": "Anything we should know",
+      "pay": "Pay",
+      "paying": "Paying…",
+      "script": "Almost there!",
+      "step_contact": "Who it's for",
+      "step_delivery": "How it reaches you",
+      "step_pay": "How you pay",
+      "subtotal": "Bottles",
+      "summary": "Your order",
+      "title": "Check out",
+      "total": "Total"
+    },
+    "contact": {
+      "address": "Find us",
+      "description": "Write to Ép about an order or a bottle.",
+      "email": "Email",
+      "hours": "Open",
+      "image": "/images/contact.jpg",
+      "lead": "Ask about an order, a bottle or what goes into it. Leave a phone number or an email and the answer comes there.",
+      "phone": "Phone",
+      "script": "Write to us!",
+      "title": "Contact",
+      "zalo": "Zalo"
+    },
+    "home": {
+      "description": "Cold-pressed fruit, greens and roots in bottles. Choose yours and pay online.",
+      "title": "Cold-pressed juice, ordered online"
+    },
+    "order": {
+      "again": "Back to the juices",
+      "ask": "Ask about this order",
+      "chip": "Paid",
+      "description": "Your order and where it stands.",
+      "heading": "Order placed",
+      "image": "/images/order.jpg",
+      "next": "The shop has your order and your payment. Keep the order number: the confirmation comes to the phone or email you gave.",
+      "none": "No order here yet.",
+      "number": "Order",
+      "script": "Thank you!",
+      "steps": [
+        "Paid",
+        "Confirmed",
+        "On its way",
+        "Delivered"
+      ],
+      "title": "Order placed",
+      "total": "Paid",
+      "what": "What you ordered",
+      "what_script": "Good choice!"
+    },
+    "product": {
+      "add": "Add to bag",
+      "added": "In your bag",
+      "back": "Back to the juices",
+      "description": "What is in the bottle, how big it is and what it costs.",
+      "inside": "What's in the bottle",
+      "inside_script": "Read the label!",
+      "keeps": "Keeps",
+      "missing": "That bottle is not on the menu any more.",
+      "option": "Choose",
+      "pay_online": "Paid online at checkout",
+      "per": "One bottle,",
+      "pressed": "Cold-pressed",
+      "related": "Other bottles",
+      "related_script": "Try these too!",
+      "script": "Shake it first!",
+      "see_bag": "See your bag",
+      "spec_count": "Ingredients",
+      "spec_keeps": "Keeps",
+      "spec_kind": "Kind",
+      "spec_volume": "Bottle",
+      "title": "A juice"
+    },
+    "shop": {
+      "all": "All",
+      "clear": "Show every bottle",
+      "count": "bottles",
+      "crumb": "Juices",
+      "description": "Every bottle, by kind and by size.",
+      "empty": "No bottle matches that.",
+      "filter_label": "Narrow the juices",
+      "heading": "All juices",
+      "image": "/images/shop.jpg",
+      "more": "Show more",
+      "script": "Pick yours!",
+      "title": "Juices"
     }
   },
-  "strip": "Sent the next working day — for the kitchen, the house and everything in between."
+  "site": {
+    "description": "Ép sells cold-pressed fruit, greens and roots in bottles, ordered and paid for online.",
+    "locale": "vi-VN",
+    "logo": "",
+    "name": "Ép"
+  },
+  "strip": "Cold-pressed juice in bottles — order online, pay online."
 }

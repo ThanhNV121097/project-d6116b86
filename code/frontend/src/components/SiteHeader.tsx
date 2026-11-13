@@ -5,6 +5,7 @@ import { useCart } from "../lib/cart";
 import type { NavItem } from "../lib/shop";
 import CartDrawer from "./CartDrawer";
 import Icon from "./Icon";
+import LogoMark from "./LogoMark";
 import MenuToggle from "./MenuToggle";
 import MobileMenu from "./MobileMenu";
 
@@ -30,19 +31,21 @@ export default function SiteHeader({ over = false }: { over?: boolean }) {
       <div className="relative">
         <span className={`absolute inset-0 rounded ${over ? "border border-[var(--glass-line)] bg-[var(--glass)] backdrop-blur-md" : "border border-line"}`} />
         <div className="relative flex h-[var(--header-h)] items-center gap-8 px-5">
-          <Link to="/" aria-label={name} className="shrink-0 font-display text-2xl uppercase leading-none"><T k="site.name" /></Link>
+          <Link to="/" aria-label={name} className="flex shrink-0 items-center gap-2 font-display text-2xl uppercase leading-none"><LogoMark className="h-7 w-7" /><T k="site.name" /></Link>
           <nav aria-label="Main" className="mx-auto hidden items-center gap-10 text-sm lg:flex">
             {links.map((l, i) => (
               <Link key={l.href} to={l.href} className="underline-offset-4 hover:underline"><T k={`nav.links.${i}.label`} /></Link>
             ))}
           </nav>
           <div className="ml-auto flex shrink-0 items-center gap-4 text-sm lg:ml-0">
-            <button type="button" onClick={() => setBag(true)} data-testid="open-bag" aria-label={bagLabel} className="inline-flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-ground text-ink"><Icon name="bag" size={16} /></span>
-              <span className="hidden lg:inline"><T k="header.bag" />{" "}<span className="tabular-nums">({count})</span></span>
+            <button type="button" onClick={() => setBag(true)} data-testid="open-bag" aria-label={`${bagLabel} (${count})`} className="relative grid h-10 w-10 place-items-center">
+              <span className={`grid h-9 w-9 place-items-center rounded-full text-ink ${over ? "bg-ground" : "bg-surface"}`}><Icon name="bag" size={17} /></span>
+              {count > 0 && (
+                <span data-testid="bag-count" className="absolute -right-0.5 -top-0.5 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-[0.6875rem] font-medium leading-none tabular-nums text-accent-ink">{count}</span>
+              )}
             </button>
-            <Link to="/shop" data-testid="header-cta"
-              className="hidden rounded-full bg-ground px-5 py-2.5 font-display text-sm uppercase leading-none text-ink lg:block">
+            <Link to="/shop" data-testid="header-cta" data-magnetic=""
+              className={`hidden rounded-full px-5 py-2.5 font-display text-sm uppercase leading-none lg:block ${over ? "bg-ground text-ink" : "bg-accent text-accent-ink"}`}>
               <T k="nav.cta.label" />
             </Link>
             <MenuToggle open={menu} onToggle={() => setMenu((o) => !o)} className={`lg:hidden ${over ? "text-[var(--on-photo)]! hover:bg-transparent!" : ""}`} />

@@ -1,51 +1,5 @@
 [
-  {
-    "id": "kitchen",
-    "name": "Kitchen",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  },
-  {
-    "id": "home",
-    "name": "Home",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  },
-  {
-    "id": "audio",
-    "name": "Audio",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  },
-  {
-    "id": "bags",
-    "name": "Bags",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  },
-  {
-    "id": "desk",
-    "name": "Desk",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  },
-  {
-    "id": "garden",
-    "name": "Garden",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  },
-  {
-    "id": "wellness",
-    "name": "Wellness",
-    "image": "",
-    "_source": "assumed",
-    "_sample": true
-  }
+  { "id": "fruit", "name": "Fruit", "_source": "web:https://pressed.com/collections/juices" },
+  { "id": "greens", "name": "Greens", "_source": "web:https://pressed.com/collections/juices" },
+  { "id": "roots", "name": "Roots & spice", "_source": "web:https://pressed.com/collections/juices" }
 ]

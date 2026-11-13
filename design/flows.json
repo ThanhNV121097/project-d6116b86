@@ -2,82 +2,49 @@
   {
     "name": "From the header's pill to the shop",
     "steps": [
-      {
-        "action": "open",
-        "path": "/"
-      },
-      {
-        "action": "click",
-        "selector": "[data-testid='header-cta']"
-      },
-      {
-        "action": "expect",
-        "selector": "[data-testid='shop-count']"
-      }
+      { "action": "open", "path": "/" },
+      { "action": "click", "selector": "[data-testid='header-cta']" },
+      { "action": "expect", "selector": "[data-testid='shop-count']" }
     ]
   },
   {
-    "name": "Open the first thing from its card on the hero",
+    "name": "Open the first bottle from its card on the hero",
     "steps": [
-      {
-        "action": "open",
-        "path": "/"
-      },
-      {
-        "action": "click",
-        "selector": "[data-testid='float-stoneware-teapot']"
-      },
-      {
-        "action": "expect",
-        "selector": "[data-testid='product-name']",
-        "text": "Stoneware Teapot"
-      }
+      { "action": "open", "path": "/" },
+      { "action": "click", "selector": "[data-testid='float-green-booster']" },
+      { "action": "expect", "selector": "[data-testid='product-name']", "text": "Green Booster" }
     ]
   },
   {
-    "name": "Put a thing in the bag and check out",
+    "name": "Put a bottle in the bag, pay online and see the order placed",
     "steps": [
-      {
-        "action": "open",
-        "path": "/shop/stoneware-teapot"
-      },
-      {
-        "action": "click",
-        "selector": "[data-testid='product-add']"
-      },
-      {
-        "action": "open",
-        "path": "/bag"
-      },
-      {
-        "action": "expect",
-        "selector": "[data-testid='bag-line-stoneware-teapot']"
-      },
-      {
-        "action": "click",
-        "selector": "[data-testid='bag-checkout']"
-      },
-      {
-        "action": "expect",
-        "selector": "[data-testid='place-order']"
-      }
+      { "action": "open", "path": "/shop/pineapple-mint" },
+      { "action": "click", "selector": "[data-testid='product-add']" },
+      { "action": "open", "path": "/bag" },
+      { "action": "expect", "selector": "[data-testid='bag-line-pineapple-mint']" },
+      { "action": "click", "selector": "[data-testid='bag-checkout']" },
+      { "action": "type", "selector": "#checkout-name", "value": "Lan" },
+      { "action": "type", "selector": "#checkout-reply", "value": "0900000000" },
+      { "action": "type", "selector": "#checkout-address", "value": "12 Le Loi" },
+      { "action": "click", "selector": "[data-testid='pay-wallet']" },
+      { "action": "click", "selector": "[data-testid='place-order']" },
+      { "action": "expect", "selector": "[data-testid='order-placed']" }
     ]
   },
   {
-    "name": "From the second photograph to the range",
+    "name": "From the second photograph to the juices",
     "steps": [
-      {
-        "action": "open",
-        "path": "/"
-      },
-      {
-        "action": "click",
-        "selector": "[data-testid='ask-cta']"
-      },
-      {
-        "action": "expect",
-        "selector": "[data-testid='card-over-ear']"
-      }
+      { "action": "open", "path": "/" },
+      { "action": "click", "selector": "[data-testid='ask-cta']" },
+      { "action": "expect", "selector": "[data-testid='card-orange-turmeric']" }
+    ]
+  },
+  {
+    "name": "Narrow the shop to greens",
+    "steps": [
+      { "action": "open", "path": "/shop" },
+      { "action": "click", "selector": "[data-testid='chip-category-greens']" },
+      { "action": "expect", "selector": "[data-testid='card-celery']" }
     ]
   }
 ]

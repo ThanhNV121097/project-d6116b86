@@ -18,12 +18,17 @@ import { T } from "../editable";
  * A mark, not a face — it never carries a sentence, and a heading with no
  * words for it draws none.
  */
-export default function Script({ k, className = "", alone = false }: { k: string; className?: string; alone?: boolean }) {
+export default function Script({ k, className = "", alone = false, onPhoto = false }: { k: string; className?: string; alone?: boolean; onPhoto?: boolean }) {
+  // On white the script is the olive-lime that reads at 3:1; on a photograph
+  // it is the bright lime on its own deep-green shadow.
+  const ink = onPhoto
+    ? "text-accent [text-shadow:0_0_1px_var(--script-shadow),0_0_1px_var(--script-shadow),0_0_3px_var(--script-shadow),0_0_10px_var(--script-shadow),0_0_26px_var(--script-shadow),0_2px_3px_var(--script-shadow)]"
+    : "text-[var(--script-ink)]";
   return (
     <>
       {alone ? null : "\u00A0"}
       <T k={k} as="span"
-        className={`pointer-events-none inline-block -translate-x-[0.6em] translate-y-[0.35em] -rotate-6 whitespace-nowrap font-[family-name:var(--font-accent)] text-[0.82em] font-medium normal-case leading-none tracking-normal text-accent ${className}`} />
+        className={`pointer-events-none inline-block -translate-x-[0.6em] translate-y-[0.35em] -rotate-6 whitespace-nowrap font-[family-name:var(--font-accent)] text-[0.82em] font-medium normal-case leading-none tracking-normal ${ink} ${className}`} />
     </>
   );
 }

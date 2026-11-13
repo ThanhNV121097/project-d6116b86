@@ -1,0 +1,5 @@
+[
+  { "id": "card", "name": "Card", "icon": "card", "note": "", "_source": "assumed" },
+  { "id": "transfer", "name": "Bank transfer (VietQR)", "icon": "qr", "note": "", "_source": "assumed" },
+  { "id": "wallet", "name": "E-wallet", "icon": "wallet", "note": "", "_source": "assumed" }
+]

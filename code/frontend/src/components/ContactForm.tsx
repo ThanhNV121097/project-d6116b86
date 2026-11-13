@@ -1,6 +1,7 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { T, useContent } from "../editable";
 import { canSend, sendEnquiry } from "../site";
+import Pill from "./Pill";
 
 /**
  * The contact form. What a customer sends reaches the owner in Agent Team
@@ -47,7 +48,7 @@ export default function ContactForm({ fields = [], className = "" }: { fields?: 
   // nearly invisible, and a field that borrows it has no edge a reader can
   // find. The walk measures this (field-edge) and one run reported it ten
   // times — every input on the site.
-  const input = "w-full rounded border border-field bg-ground px-4 py-3 text-ink";
+  const input = "w-full appearance-none rounded-[var(--radius-sm)] border border-field bg-ground px-4 py-3 text-ink focus:border-ink focus:outline-none";
   return (
     <form onSubmit={(e) => void submit(e)} className={`flex flex-col gap-4 ${className}`}>
       <Field k="name"><input name="name" autoComplete="name" required className={input} /></Field>
@@ -59,9 +60,9 @@ export default function ContactForm({ fields = [], className = "" }: { fields?: 
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       {state === "failed" && <p role="alert" className="text-sm text-ink">{problem}</p>}
       {!canSend && <p className="text-sm text-ink-soft">{offline}</p>}
-      <button type="submit" disabled={state === "sending"} className="self-start rounded bg-accent px-6 py-3 text-accent-ink disabled:opacity-60">
+      <Pill type="submit" disabled={state === "sending"} testid="contact-send" glyph="mail" className="self-start">
         <T k={state === "sending" ? "contact.form.sending" : "contact.form.send"} />
-      </button>
+      </Pill>
     </form>
   );
 }
