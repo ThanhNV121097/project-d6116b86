@@ -28,12 +28,15 @@ drawn in `LogoMark.tsx` and used as `favicon.svg`.
 
 ## Where the records come from
 
-- **Morico at Home**, Ho Chi Minh City — four cold-pressed 250 ml bottles
-  with their own ingredients and VND prices:
-  https://morico-at-home.myshopify.com/collections/cold-pressed-juice
-  (Tropical Glow, Antioxidant, Green Booster, Daily Vitamin; 85.000 ₫ –
-  105.000 ₫; "keeps 5 days in the fridge").
-- **Pressed Juicery** — five 450 ml cold-pressed bottles, shot as clean
+- **Morico at Home**, Ho Chi Minh City — cold-pressed 250 ml bottles with
+  their own ingredients and VND prices:
+  https://morico-at-home.myshopify.com/collections/cold-pressed-juice .
+  Green Booster (105.000 ₫, "keeps 5 days in the fridge") is kept. Tropical
+  Glow, Antioxidant and Daily Vitamin were crawled with their pictures and
+  then dropped at the first crit: they are glass bottles photographed on a
+  grey wall, which cannot be cut out, and in a grid of cut-out bottles they
+  filled their tiles edge to edge at twice the scale of the rest.
+- **Pressed Juicery** — eight 450 ml cold-pressed bottles, shot as clean
   pack-shots with an ingredients picture and a lifestyle picture each:
   https://pressed.com/collections/juices . Listed at US$6.95; converted at
   about 26.000 ₫ to the dollar and rounded to **180.000 ₫**, with the
@@ -54,11 +57,10 @@ bottles before the site goes online.
   shop look less like what it sells. `--accent-soft` `#F7FBE2` added for the
   pale band, as the template asks.
 - **The sky behind a flavour: one pale tile.** The template stands each can
-  on a blue-sky photograph. Here half the bottles are glass photographed on a
-  light backdrop (they cannot be cut out — glass shows the backdrop through
-  it) and half are cut out. A gradient sky turned the glass bottles muddy
-  under `multiply`, so every bottle — cut-out or whole — stands on ONE flat
-  pale sky, `--product-ground` `#DCEBF5`. One grid, one ground.
+  on a blue-sky photograph. Here every bottle is cut out and stands on ONE
+  flat pale sky, `--product-ground` `#DCEBF5` (and `--product-photo-ground`
+  set to the same, so a glass bottle the owner photographs later lands on
+  the same ground). One grid, one ground, one scale.
 - **Faces: kept.** Anton 400 capitals, Inter 400 for reading, Caveat for
   the three or four handwritten words. The template is drawn in heavy
   condensed capitals and is built in them; that is the first unlock below.
