@@ -136,13 +136,13 @@
         "products": "Juices"
       },
       "overview": {
-        "drafts": "still in draft",
+        "drafts": "in draft",
         "kinds": "Kinds",
-        "kinds_note": "What the juices are sorted by",
+        "kinds_note": "Menu sections",
         "live": "On the menu",
-        "live_note": "In the shop now",
+        "live_note": "In the shop",
         "payments": "Ways to pay",
-        "payments_note": "Offered at checkout",
+        "payments_note": "At checkout",
         "products": "Juices",
         "title": "Overview"
       },
