@@ -18,6 +18,11 @@
   --accent-ink: #002F1F;
   /* The pale lime of the one band of colour (the notes, the ingredients). */
   --accent-soft: #F7FBE2;
+  /* The handwritten words where they lie on white or on the pale band: the
+     lime taken down to an olive-lime so it reads at 3:1 (the bright lime is
+     1.4:1 on white). On a photograph the script stays the bright lime with
+     its own deep-green shadow (Script onPhoto). */
+  --script-ink: #6E9000;
   /* WHAT IS ABOUT TO BE LOST, and nothing else. A site's palette is the four
      colours its owner chose and this is not one of them: it is the colour of
      a delete button and of a field that failed, which have to read as that
