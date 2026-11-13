@@ -43,7 +43,7 @@ export default function SiteHeader({ over = false }: { over?: boolean }) {
               <span className="hidden lg:inline"><T k="header.bag" />{" "}<span className="tabular-nums">({count})</span></span>
             </button>
             <Link to="/shop" data-testid="header-cta" data-magnetic=""
-              className="hidden rounded-full bg-ground px-5 py-2.5 font-display text-sm uppercase leading-none text-ink lg:block">
+              className={`hidden rounded-full px-5 py-2.5 font-display text-sm uppercase leading-none lg:block ${over ? "bg-ground text-ink" : "bg-accent text-accent-ink"}`}>
               <T k="nav.cta.label" />
             </Link>
             <MenuToggle open={menu} onToggle={() => setMenu((o) => !o)} className={`lg:hidden ${over ? "text-[var(--on-photo)]! hover:bg-transparent!" : ""}`} />
