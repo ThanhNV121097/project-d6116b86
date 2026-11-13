@@ -15,6 +15,7 @@ import Bag from "./pages/Bag";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
+import Order from "./pages/Order";
 import Product from "./pages/Product";
 import Shop from "./pages/Shop";
 
@@ -66,6 +67,7 @@ export default function App() {
         <Route path="/shop/:id" element={<Product />} />
         <Route path="/bag" element={<Bag />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order" element={<Order />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="/admin/sign-in" element={<AdminSignIn />} />
