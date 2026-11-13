@@ -78,7 +78,7 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
   const card = (checked: boolean) => `relative flex cursor-pointer gap-3 rounded border p-4 transition-colors ${checked ? "border-ink bg-surface" : "border-line hover:border-field"}`;
   return (
     <form onSubmit={submit} className={`relative grid gap-10 lg:grid-cols-12 lg:items-start ${className}`}>
-      <div className="flex flex-col gap-10 lg:col-span-7">
+      <div className="flex min-w-0 flex-col gap-10 lg:col-span-7">
         <Step n={1} k="pages.checkout.step_contact">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field id="checkout-name" k="contact.form.name"><input id="checkout-name" name="name" autoComplete="name" required className={input} /></Field>
@@ -165,7 +165,7 @@ export default function OrderForm({ lines, className = "" }: { lines: CartLine[]
 /** One numbered step: the steps of paying are a sequence, so they count. */
 function Step({ n, k, children }: { n: number; k: string; children: ReactNode }) {
   return (
-    <fieldset className="flex flex-col gap-4">
+    <fieldset className="flex min-w-0 flex-col gap-4">
       <legend className="mb-4 flex items-center gap-3">
         <span className="grid h-9 w-9 place-items-center rounded-full bg-ink font-display text-lg leading-none text-ground">{n}</span>
         <T k={k} className="font-display text-2xl uppercase text-ink" />
