@@ -26,11 +26,13 @@ export default function Home() {
   const products = useCollection<Product>("products", { where: { status: "live" }, pageSize: 12 }).items;
   const ingredients = [...new Set(products.flatMap((p) => p.ingredients ?? []))];
   const bandLabel = useContent("home.band.label");
+  // The first two bottles are on the hero's cards; the row carries the rest.
+  const row = products.slice(2);
   return (
     <>
       <Hero lead={products.slice(0, 2)} />
 
-      {products.length > 0 && (
+      {row.length > 0 && (
         <section className="pt-16 lg:pt-6">
           <Pin heading={
             <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -41,7 +43,7 @@ export default function Home() {
               <Pill to="/shop" testid="range-all"><T k="home.range.cta" /></Pill>
             </div>
           }>
-            {products.map((p) => (
+            {row.map((p) => (
               <div key={p.id} className="w-[72vw] sm:w-[19rem]"><ProductCard product={p} /></div>
             ))}
           </Pin>
@@ -75,18 +77,19 @@ export default function Home() {
 function Hero({ lead }: { lead: Product[] }) {
   const image = useContent("hero.image");
   const alt = useContent("hero.alt");
+  const headline = useContent("hero.headline");
   return (
     <section className="relative mx-[calc(var(--gutter)*-1)] bg-[var(--photo-deep)] text-[var(--on-photo)]">
       <div className="relative min-h-[30rem] overflow-hidden lg:h-[44rem]">
         {image && <Picture src={image} alt={alt} loading="eager" motion="parallax" width={1600} height={900} className="absolute inset-0 h-full w-full object-cover" />}
-        <T k="hero.headline" as="h1" className="sr-only" />
-        {/* THE GHOSTED WORD: as wide as the page, cut off by the picture's
-            foot, pale enough that the photograph reads through it. */}
-        <div aria-hidden="true" data-drift=""
-          className="absolute inset-x-0 -bottom-[0.16em] text-center font-display text-[clamp(6rem,23vw,25rem)] uppercase leading-[0.85] opacity-80">
-          <SplitHeading k="hero.word" as="p" className="whitespace-nowrap" />
-        </div>
-        <p className="absolute inset-x-0 bottom-[36%] text-center text-[clamp(2.5rem,5vw,5rem)]"><Script alone k="hero.script" className="translate-x-0 [text-shadow:0_0_3px_var(--script-shadow),0_0_10px_var(--script-shadow),0_0_26px_var(--script-shadow),0_2px_3px_var(--script-shadow)]" /></p>
+        {/* THE GHOSTED WORD is the page's heading: as wide as the page, cut
+            off by the picture's foot, pale enough that the photograph reads
+            through it. Read aloud, it is the whole headline. */}
+        <h1 aria-label={headline} data-drift=""
+          className="absolute inset-x-0 -bottom-[0.16em] text-center font-display text-[clamp(6rem,23vw,25rem)] uppercase leading-[0.85] opacity-80 [text-shadow:0_2px_30px_var(--scrim)]">
+          <SplitHeading k="hero.word" as="span" className="block whitespace-nowrap" />
+        </h1>
+        <p className="absolute inset-x-0 bottom-[36%] text-center text-[clamp(2.5rem,5vw,5rem)]"><Script alone onPhoto k="hero.script" className="translate-x-0" /></p>
       </div>
       <SiteHeader over />
       {lead.length > 0 && (
@@ -148,7 +151,7 @@ function Ask() {
     <section className="relative mx-[calc(var(--gutter)*-1)] flex min-h-[26rem] flex-col justify-between gap-10 overflow-hidden bg-[var(--photo-deep)] p-[var(--gutter)] text-[var(--on-photo)] lg:h-[34rem] lg:py-14">
       {image && <Picture src={image} alt="" width={1600} height={900} motion="zoom" className="absolute inset-0 h-full w-full object-cover" />}
       <span className="absolute inset-0 bg-[linear-gradient(120deg,var(--scrim),transparent_60%)]" />
-      <h2 className="relative max-w-[24ch] font-display text-[length:var(--size-h1)] uppercase leading-[0.95]"><T k="home.ask.title" /><Script k="home.ask.script" /></h2>
+      <h2 className="relative max-w-[24ch] font-display text-[length:var(--size-h1)] uppercase leading-[0.95]"><T k="home.ask.title" /><Script onPhoto k="home.ask.script" /></h2>
       <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <T k="home.ask.line" as="p" className="max-w-[40ch] text-sm leading-relaxed" />
         <Pill to="/shop" testid="ask-cta"><T k="home.ask.cta" /></Pill>
