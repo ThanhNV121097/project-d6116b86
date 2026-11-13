@@ -16,6 +16,8 @@
   --ink-soft: #5C6B5F;
   --accent: #C5EB00;
   --accent-ink: #002F1F;
+  /* The pale lime of the one band of colour (the notes, the ingredients). */
+  --accent-soft: #F7FBE2;
   /* WHAT IS ABOUT TO BE LOST, and nothing else. A site's palette is the four
      colours its owner chose and this is not one of them: it is the colour of
      a delete button and of a field that failed, which have to read as that
@@ -86,6 +88,10 @@
      the tools cut products out of a white studio backdrop, and a white or
      silver product cut out onto a dark ground loses its shading. */
   --product-ground: #DCEBF5;
+  /* Ép: ONE pale sky for every bottle. The glass bottles are kept whole (a
+     .jpg multiplied onto --product-photo-ground) and the rest are cut out
+     (on --product-ground); the two are the same colour so a grid of both is
+     one ground. */
   /* Words drawn ON that tile — a <Picture> block's caption where a product
      has no photograph yet. The tile is light in both modes, so --ink-soft
      (light on a dark site) was invisible there. */
@@ -94,7 +100,7 @@
      whole rather than cut out (a .jpg in <ProductImage>): an open thing —
      spokes, slats, a handle — whose white takes this colour, gaps included.
      Light, always: on a strong colour a white thing disappears into it. */
-  --product-photo-ground: #E3EEF6;
+  --product-photo-ground: #DCEBF5;
 
   /* The ground and the ink of a <Picture> block standing where a photograph
      is not there yet. The site's own surface by default; <ProductImage>
