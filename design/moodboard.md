@@ -207,6 +207,6 @@ us" row → footer with `PRESSED` set enormous.
 3. Two small white rounded cards float over the hero photograph's lower corners, each with a bottle on pale sky, its name, its price and a round lime button.
 4. Every section heading on every page is Anton capitals with three or four handwritten words tilted across its end — bright lime on a photograph (with a deep-green shadow), an olive-lime `--script-ink` on white and on the pale band so it reads at 3:1.
 5. Every bottle on the site stands on the same flat pale-sky tile, with its lead fruit on a small lime chip at the tile's top right.
-6. On the home page at 1024px and wider, the flavours section holds the screen while its row of nine bottles passes sideways.
+6. On the home page at 1024px and wider, the flavours section holds the screen while its row of bottles passes sideways (the seven not already on the hero's cards).
 7. A lime band of ingredient names runs by itself across the home page, between the flavours and the notes.
 8. The footer ends on PRESSED set in deep green capitals as wide as the page and cut off by its bottom edge.
