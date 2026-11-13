@@ -1,0 +1,20 @@
+[
+  {
+    "id": "delivery",
+    "name": "Delivery",
+    "fee": null,
+    "minimum": null,
+    "areas": "",
+    "note": "",
+    "_source": "assumed"
+  },
+  {
+    "id": "pickup",
+    "name": "Pick up",
+    "fee": null,
+    "minimum": null,
+    "areas": "",
+    "note": "",
+    "_source": "assumed"
+  }
+]

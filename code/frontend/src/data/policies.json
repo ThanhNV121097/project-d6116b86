@@ -1,0 +1,4 @@
+[
+  { "id": "delivery", "title": "Delivery", "body": "", "_source": "assumed" },
+  { "id": "cancellation", "title": "Cancelling an order", "body": "", "_source": "assumed" }
+]

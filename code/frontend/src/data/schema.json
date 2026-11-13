@@ -1,133 +1,53 @@
 {
   "collections": {
     "products": {
-      "label": "Products",
+      "label": "Juices",
       "fields": [
-        {
-          "key": "image",
-          "label": "Photograph",
-          "type": "image",
-          "section": "Basics",
-          "hint": "The thing alone, cut out — it stands on a sky-blue tile."
-        },
-        {
-          "key": "name",
-          "label": "Name",
-          "type": "text",
-          "required": true,
-          "section": "Basics"
-        },
-        {
-          "key": "category",
-          "label": "Department",
-          "type": "ref:categories",
-          "section": "Basics"
-        },
-        {
-          "key": "price",
-          "label": "Price",
-          "type": "price",
-          "currency": "VND",
-          "section": "Basics"
-        },
-        {
-          "key": "was",
-          "label": "Price before",
-          "type": "price",
-          "currency": "VND",
-          "section": "Basics",
-          "hint": "Shown struck through beside the price. Leave empty when nothing was reduced."
-        },
-        {
-          "key": "fact",
-          "label": "One or two words for its chip",
-          "type": "text",
-          "section": "Basics",
-          "hint": "A flavour, a size — shown on a small lime chip at the top of its card."
-        },
-        {
-          "key": "stock",
-          "label": "In stock",
-          "type": "number",
-          "section": "Basics"
-        },
-        {
-          "key": "status",
-          "label": "Status",
-          "type": "text",
-          "options": [
-            [
-              "draft",
-              "Draft"
-            ],
-            [
-              "live",
-              "Live"
-            ]
-          ],
-          "section": "Basics"
-        },
-        {
-          "key": "deal",
-          "label": "In today's deals",
-          "type": "bool",
-          "section": "Basics",
-          "hint": "Shown in the first row of the home page."
-        },
-        {
-          "key": "description",
-          "label": "Description",
-          "type": "longtext",
-          "section": "Basics"
-        },
-        {
-          "key": "options",
-          "label": "Options",
-          "type": "list",
-          "section": "Details",
-          "hint": "Colours or sizes a buyer chooses between."
-        },
-        {
-          "key": "material",
-          "label": "Made of",
-          "type": "text",
-          "section": "Details"
-        },
-        {
-          "key": "care",
-          "label": "Care",
-          "type": "longtext",
-          "section": "Details"
-        },
-        {
-          "key": "image_back",
-          "label": "A second picture",
-          "type": "image",
-          "section": "More pictures"
-        },
-        {
-          "key": "image_detail",
-          "label": "A detail",
-          "type": "image",
-          "section": "More pictures"
-        }
+        { "key": "image", "label": "Photograph of the bottle", "type": "image", "section": "Basics", "hint": "The bottle alone on a plain light backdrop. It stands on a pale-sky tile." },
+        { "key": "name", "label": "Name", "type": "text", "required": true, "section": "Basics" },
+        { "key": "category", "label": "Kind", "type": "ref:categories", "section": "Basics" },
+        { "key": "price", "label": "Price", "type": "price", "currency": "VND", "required": true, "section": "Basics" },
+        { "key": "price_listed", "label": "Price on the source page", "type": "text", "hidden": true },
+        { "key": "volume", "label": "Bottle size", "type": "text", "section": "Basics", "hint": "As it is written on the label, e.g. 250 ml." },
+        { "key": "fact", "label": "Word for its chip", "type": "text", "section": "Basics", "hint": "The lead fruit or vegetable, shown on a lime chip on its card." },
+        { "key": "status", "label": "Status", "type": "text", "options": [["draft", "Draft"], ["live", "Live"]], "section": "Basics" },
+        { "key": "description", "label": "Description", "type": "longtext", "section": "Basics" },
+        { "key": "ingredients", "label": "What is in it", "type": "list", "section": "Details", "hint": "One fruit or vegetable per tag, in the order on the label." },
+        { "key": "keeps", "label": "How long it keeps", "type": "text", "section": "Details", "hint": "e.g. 5 days in the fridge." },
+        { "key": "options", "label": "Choices", "type": "list", "section": "Details", "hint": "Sizes or sweetness a buyer chooses between. Leave empty when there is one way." },
+        { "key": "image_back", "label": "A second picture", "type": "image", "section": "More pictures", "hint": "What goes into it, or the bottle from another side." },
+        { "key": "image_detail", "label": "The bottle in use", "type": "image", "section": "More pictures" }
       ]
     },
     "categories": {
-      "label": "Departments",
+      "label": "Kinds",
       "fields": [
-        {
-          "key": "image",
-          "label": "Picture for the circle",
-          "type": "image",
-          "hint": "One thing from the department, cut out. It sits on a pale disc."
-        },
-        {
-          "key": "name",
-          "label": "Name",
-          "type": "text",
-          "required": true
-        }
+        { "key": "name", "label": "Name", "type": "text", "required": true }
+      ]
+    },
+    "delivery_options": {
+      "label": "Delivery",
+      "fields": [
+        { "key": "name", "label": "Name", "type": "text", "required": true },
+        { "key": "fee", "label": "Fee", "type": "price", "currency": "VND" },
+        { "key": "minimum", "label": "Smallest order", "type": "price", "currency": "VND" },
+        { "key": "areas", "label": "Areas or districts", "type": "longtext" },
+        { "key": "note", "label": "Shown under it at checkout", "type": "longtext" }
+      ]
+    },
+    "payment_methods": {
+      "label": "Ways to pay",
+      "fields": [
+        { "key": "name", "label": "Name", "type": "text", "required": true },
+        { "key": "icon", "label": "Icon", "type": "text", "options": [["card", "Card"], ["qr", "QR code"], ["wallet", "Wallet"], ["cash", "Cash"]] },
+        { "key": "note", "label": "Shown under it at checkout", "type": "longtext" }
+      ]
+    },
+    "policies": {
+      "label": "Delivery and cancelling",
+      "fields": [
+        { "key": "title", "label": "Title", "type": "text", "required": true },
+        { "key": "body", "label": "What it says", "type": "longtext" }
       ]
     }
   }
