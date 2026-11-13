@@ -10,7 +10,8 @@ import Pill from "../components/Pill";
 import ProductCard from "../components/ProductCard";
 import Script from "../components/Script";
 
-const chipBase = "inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-medium uppercase tracking-wide transition-colors";
+const chipBase = "inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.8125rem] font-medium uppercase tracking-wide transition-colors";
+const onPhotoText = "[text-shadow:0_1px_3px_var(--script-shadow),0_0_24px_var(--scrim)]";
 const chipOn = "bg-accent text-accent-ink";
 const chipOff = "bg-ground text-ink hover:bg-surface";
 
@@ -48,10 +49,10 @@ export default function Shop() {
         {image && <Picture src={image} alt="" loading="eager" width={1600} height={900} motion="parallax" className="absolute inset-0 h-full w-full object-cover" />}
         <span className="absolute inset-0 bg-[linear-gradient(100deg,var(--scrim),transparent_75%)]" />
         <div className="relative flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <h1 className="relative font-display text-[length:var(--size-h1)] uppercase leading-[0.95]">
-            {one ? one.name : <T k="pages.shop.heading" />}<Script k="pages.shop.script" />
+          <h1 className={`relative font-display text-[length:var(--size-h1)] uppercase leading-[0.95] ${onPhotoText}`}>
+            {one ? one.name : <T k="pages.shop.heading" />}<Script onPhoto k="pages.shop.script" />
           </h1>
-          <p data-testid="shop-count" className="shrink-0 text-sm">
+          <p data-testid="shop-count" className={`shrink-0 text-base ${onPhotoText}`}>
             <span data-count="" className="font-display text-4xl tabular-nums">{total}</span>{" "}<T k="pages.shop.count" />
           </p>
         </div>
